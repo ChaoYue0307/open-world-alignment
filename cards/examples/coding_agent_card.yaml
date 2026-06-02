@@ -1,0 +1,119 @@
+{
+  "schema_version": "0.1",
+  "system_name": "Repository-level coding agent",
+  "system_description": "A system that generates or selects candidate patches for software issues in existing repositories.",
+  "claim_type": {
+    "description": "The system is claimed to resolve repository-level issues in settings where reviewers may not fully inspect every dependency interaction, hidden failure mode, or downstream consequence unaided.",
+    "beyond_human_claim": true,
+    "claim_scope": "Specified repository classes, issue types, test harnesses, and deployment settings rather than general software autonomy.",
+    "supervision_boundary": "Unaided human review becomes weak when the patch is large, touches many dependencies, relies on hidden tests, or has delayed security, compatibility, or maintenance effects."
+  },
+  "target_world_state": {
+    "intended_real_world_outcome": "The accepted patch should solve the intended issue without introducing regressions, security vulnerabilities, compatibility breaks, or excessive maintenance burden.",
+    "evidence_required": "Compilation, existing tests, hidden tests, reproducer scripts, property-based tests, static analysis, security checks, maintainer review, and deployment telemetry.",
+    "failure_definition": "A material failure includes unresolved issue behavior, failed regression tests, hidden test failure, high-severity vulnerability, secret leakage, unauthorized API or dependency changes, or rollback after deployment."
+  },
+  "human_signal_role": {
+    "labels_used": true,
+    "preferences_used": true,
+    "benchmarks_or_judges": [
+      "Issue descriptions",
+      "Maintainer preferences",
+      "Code review comments",
+      "Style judgments",
+      "Model-generated critiques when used as advisory signals"
+    ],
+    "human_signal_can_verify": "Humans can assess intent, contextual fit, readability, maintainability, repository norms, and whether the proposed change matches the stated issue.",
+    "human_signal_cannot_verify": "Unaided humans may not reliably verify hidden test behavior, dependency interactions, security edge cases, production regressions, or long-term maintenance cost.",
+    "role_in_decision": "Human signals help define the task, interpret verifier outcomes, and approve deployment, but they do not replace executable verification."
+  },
+  "verifier_stack": {
+    "hard_verifiers": [
+      "Compilation or build success",
+      "Existing unit and regression tests",
+      "Hidden tests",
+      "Reproducer scripts",
+      "Static type checks",
+      "Security scans for high-severity findings"
+    ],
+    "soft_verifiers": [
+      "Maintainability review",
+      "Readability review",
+      "Architectural fit review",
+      "Documentation quality review"
+    ],
+    "human_review_channels": [
+      "Maintainer review",
+      "Security owner review for sensitive code",
+      "Release manager review for deployment risk"
+    ],
+    "external_tools_or_simulators": [
+      "Issue-resolution harness",
+      "Property-based tests",
+      "Linters",
+      "Fuzzing where appropriate",
+      "Performance regression tests",
+      "Deployment monitoring"
+    ],
+    "independence_rationale": "The stack distinguishes public tests from hidden tests, static analysis from dynamic tests, human review from model critiques, and offline benchmarks from deployment telemetry."
+  },
+  "hard_constraints": {
+    "non_negotiable_constraints": [
+      "No failed existing tests",
+      "No high-severity security finding",
+      "No secret, credential, or private-data leakage",
+      "No unauthorized dependency or license change",
+      "No violation of repository policy",
+      "No regression on critical performance, safety, or compatibility budgets"
+    ],
+    "enforcement_mechanism": "Block merge or deployment when a hard gate fails; require explicit security or release-owner approval for sensitive paths.",
+    "override_policy": "No automated override. Any exception must be documented and approved by the responsible maintainer, release manager, or security owner."
+  },
+  "evaluator_frontier": {
+    "where_humans_become_weak_supervisors": "Humans become weak supervisors when the bug is hard to reproduce, tests conflict, coverage is weak, the diff is unusually large, or risk depends on security, compatibility, or production behavior.",
+    "required_tooling_for_human_review": "Reviewers need reproduction scripts, test results, static-analysis output, dependency diff summaries, security scan reports, and deployment telemetry.",
+    "abstention_or_escalation_conditions": [
+      "Tests conflict or coverage is weak",
+      "Patch touches security-critical code",
+      "Issue is underspecified",
+      "Diff is unusually large",
+      "System cannot reproduce the bug",
+      "Verifier disagreement is high",
+      "Human reviewers disagree about intent or risk"
+    ]
+  },
+  "absent_stakeholders": {
+    "affected_non_users": [
+      "Downstream users affected by regressions",
+      "Security teams",
+      "API consumers",
+      "Operators responsible for incidents"
+    ],
+    "future_or_downstream_stakeholders": [
+      "Release managers",
+      "Future maintainers",
+      "Organizations depending on the patched package",
+      "Users affected by delayed compatibility breaks"
+    ],
+    "representation_mechanism": "Represent these stakeholders through release gates, security review, compatibility tests, incident channels, changelog review, and rollback authority."
+  },
+  "monitoring_and_rollback": {
+    "deployment_signals_to_monitor": [
+      "Revert rate",
+      "Escaped defects",
+      "Incident reports",
+      "Security tickets",
+      "Performance regressions",
+      "User bug reports",
+      "Maintenance burden"
+    ],
+    "rollback_triggers": [
+      "Hard-constraint violation",
+      "Severe production incident linked to the patch",
+      "High-severity vulnerability detected",
+      "Regression above a pre-specified threshold",
+      "Maintainer or security owner determines that verifier evidence was invalid"
+    ],
+    "revision_authority": "Maintainers, release managers, and security owners can pause, revise, roll back, or withdraw the patch."
+  }
+}

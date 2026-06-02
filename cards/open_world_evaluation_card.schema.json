@@ -1,0 +1,226 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/ChaoYue0307/open-world-alignment/cards/open_world_evaluation_card.schema.json",
+  "title": "Open-World Evaluation Card",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "schema_version",
+    "system_name",
+    "claim_type",
+    "target_world_state",
+    "human_signal_role",
+    "verifier_stack",
+    "hard_constraints",
+    "evaluator_frontier",
+    "absent_stakeholders",
+    "monitoring_and_rollback"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string"
+    },
+    "system_name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "system_description": {
+      "type": "string"
+    },
+    "claim_type": {
+      "type": "object",
+      "required": [
+        "description",
+        "beyond_human_claim",
+        "claim_scope",
+        "supervision_boundary"
+      ],
+      "properties": {
+        "description": {
+          "type": "string",
+          "minLength": 1
+        },
+        "beyond_human_claim": {
+          "type": "boolean"
+        },
+        "claim_scope": {
+          "type": "string",
+          "minLength": 1
+        },
+        "supervision_boundary": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "target_world_state": {
+      "type": "object",
+      "required": [
+        "intended_real_world_outcome",
+        "evidence_required",
+        "failure_definition"
+      ],
+      "properties": {
+        "intended_real_world_outcome": {
+          "type": "string",
+          "minLength": 1
+        },
+        "evidence_required": {
+          "type": "string",
+          "minLength": 1
+        },
+        "failure_definition": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "human_signal_role": {
+      "type": "object",
+      "required": [
+        "labels_used",
+        "preferences_used",
+        "benchmarks_or_judges",
+        "human_signal_can_verify",
+        "human_signal_cannot_verify",
+        "role_in_decision"
+      ],
+      "properties": {
+        "labels_used": {
+          "type": "boolean"
+        },
+        "preferences_used": {
+          "type": "boolean"
+        },
+        "benchmarks_or_judges": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "human_signal_can_verify": {
+          "type": "string",
+          "minLength": 1
+        },
+        "human_signal_cannot_verify": {
+          "type": "string",
+          "minLength": 1
+        },
+        "role_in_decision": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "verifier_stack": {
+      "type": "object",
+      "required": [
+        "hard_verifiers",
+        "soft_verifiers",
+        "human_review_channels",
+        "external_tools_or_simulators",
+        "independence_rationale"
+      ],
+      "properties": {
+        "hard_verifiers": {
+          "type": "array"
+        },
+        "soft_verifiers": {
+          "type": "array"
+        },
+        "human_review_channels": {
+          "type": "array"
+        },
+        "external_tools_or_simulators": {
+          "type": "array"
+        },
+        "independence_rationale": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "hard_constraints": {
+      "type": "object",
+      "required": [
+        "non_negotiable_constraints",
+        "enforcement_mechanism",
+        "override_policy"
+      ],
+      "properties": {
+        "non_negotiable_constraints": {
+          "type": "array"
+        },
+        "enforcement_mechanism": {
+          "type": "string",
+          "minLength": 1
+        },
+        "override_policy": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "evaluator_frontier": {
+      "type": "object",
+      "required": [
+        "where_humans_become_weak_supervisors",
+        "required_tooling_for_human_review",
+        "abstention_or_escalation_conditions"
+      ],
+      "properties": {
+        "where_humans_become_weak_supervisors": {
+          "type": "string",
+          "minLength": 1
+        },
+        "required_tooling_for_human_review": {
+          "type": "string",
+          "minLength": 1
+        },
+        "abstention_or_escalation_conditions": {
+          "type": "array"
+        }
+      }
+    },
+    "absent_stakeholders": {
+      "type": "object",
+      "required": [
+        "affected_non_users",
+        "future_or_downstream_stakeholders",
+        "representation_mechanism"
+      ],
+      "properties": {
+        "affected_non_users": {
+          "type": "array"
+        },
+        "future_or_downstream_stakeholders": {
+          "type": "array"
+        },
+        "representation_mechanism": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "monitoring_and_rollback": {
+      "type": "object",
+      "required": [
+        "deployment_signals_to_monitor",
+        "rollback_triggers",
+        "revision_authority"
+      ],
+      "properties": {
+        "deployment_signals_to_monitor": {
+          "type": "array"
+        },
+        "rollback_triggers": {
+          "type": "array"
+        },
+        "revision_authority": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    }
+  }
+}

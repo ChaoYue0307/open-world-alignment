@@ -1,0 +1,73 @@
+{
+  "schema_version": "0.1",
+  "system_name": "Replace with the system or benchmark name.",
+  "system_description": "Replace with a short description of the system, benchmark, or deployment setting.",
+  "claim_type": {
+    "description": "Replace with the ASI-relevant or beyond-human capability claim being evaluated.",
+    "beyond_human_claim": false,
+    "claim_scope": "Replace with the specific domain, task family, repository class, population, or deployment setting covered by the claim.",
+    "supervision_boundary": "Replace with where unaided human supervision becomes weak for this claim."
+  },
+  "target_world_state": {
+    "intended_real_world_outcome": "Replace with the real-world outcome the system is meant to improve.",
+    "evidence_required": "Replace with the evidence needed to show that the outcome improved.",
+    "failure_definition": "Replace with what would count as a material failure, not merely a low preference score."
+  },
+  "human_signal_role": {
+    "labels_used": false,
+    "preferences_used": false,
+    "benchmarks_or_judges": [
+      "Replace with human-facing benchmarks, expert ratings, user feedback channels, or judge models."
+    ],
+    "human_signal_can_verify": "Replace with what human signals can legitimately assess.",
+    "human_signal_cannot_verify": "Replace with what human signals cannot reliably verify unaided.",
+    "role_in_decision": "Replace with whether human signals are used for training, evaluation, deployment gates, escalation, or interpretation."
+  },
+  "verifier_stack": {
+    "hard_verifiers": [
+      "Replace with executable, empirical, mathematical, physical, or domain-specific hard checks."
+    ],
+    "soft_verifiers": [
+      "Replace with qualitative, judgment-based, or advisory checks."
+    ],
+    "human_review_channels": [
+      "Replace with expert review, maintainer review, institutional review, or stakeholder review channels."
+    ],
+    "external_tools_or_simulators": [
+      "Replace with tools, simulators, test harnesses, theorem provers, audits, or monitors."
+    ],
+    "independence_rationale": "Replace with why the verifiers are not merely correlated versions of the same proxy."
+  },
+  "hard_constraints": {
+    "non_negotiable_constraints": [
+      "Replace with safety, legal, privacy, rights, resource, ecological, or policy constraints."
+    ],
+    "enforcement_mechanism": "Replace with how these constraints are checked or enforced.",
+    "override_policy": "Replace with whether any constraint can be overridden, and by whom. Use 'No override' when appropriate."
+  },
+  "evaluator_frontier": {
+    "where_humans_become_weak_supervisors": "Replace with the task conditions where unaided human review becomes unreliable.",
+    "required_tooling_for_human_review": "Replace with tools humans need to inspect, reproduce, or challenge system outputs.",
+    "abstention_or_escalation_conditions": [
+      "Replace with conditions that trigger abstention, stronger verification, or human escalation."
+    ]
+  },
+  "absent_stakeholders": {
+    "affected_non_users": [
+      "Replace with affected people, institutions, ecosystems, or communities outside the direct user loop."
+    ],
+    "future_or_downstream_stakeholders": [
+      "Replace with downstream users, future populations, release consumers, or long-horizon affected parties."
+    ],
+    "representation_mechanism": "Replace with how these stakeholders are represented in evaluation, governance, or monitoring."
+  },
+  "monitoring_and_rollback": {
+    "deployment_signals_to_monitor": [
+      "Replace with incident reports, drift signals, failure rates, appeals, audits, telemetry, or external outcomes."
+    ],
+    "rollback_triggers": [
+      "Replace with mechanical thresholds or events that trigger redesign, suspension, rollback, or withdrawal."
+    ],
+    "revision_authority": "Replace with the role or institution authorized to pause, revise, roll back, or withdraw the system."
+  }
+}
