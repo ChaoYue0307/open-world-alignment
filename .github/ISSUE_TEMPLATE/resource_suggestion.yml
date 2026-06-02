@@ -1,0 +1,42 @@
+name: Resource suggestion
+description: Suggest a paper, benchmark, tool, or reporting artifact for the curated resource list.
+title: "[resource] "
+labels:
+  - resource
+body:
+  - type: input
+    id: title
+    attributes:
+      label: Resource title
+      description: Provide the stable title of the resource.
+    validations:
+      required: true
+  - type: input
+    id: link
+    attributes:
+      label: Link
+      description: Prefer official pages, arXiv, publisher pages, or project pages.
+    validations:
+      required: true
+  - type: dropdown
+    id: card_dimension
+    attributes:
+      label: Main card dimension
+      options:
+        - claim_type
+        - target_world_state
+        - human_signal_role
+        - verifier_stack
+        - hard_constraints
+        - evaluator_frontier
+        - absent_stakeholders
+        - monitoring_and_rollback
+    validations:
+      required: true
+  - type: textarea
+    id: relevance
+    attributes:
+      label: Why it belongs
+      description: Explain how the resource improves evaluation, verification, monitoring, or governance practice.
+    validations:
+      required: true

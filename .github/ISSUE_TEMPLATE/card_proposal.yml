@@ -1,0 +1,34 @@
+name: Open-World Evaluation Card proposal
+description: Propose a new filled card or an improvement to an existing card.
+title: "[card] "
+labels:
+  - card
+body:
+  - type: input
+    id: system
+    attributes:
+      label: System or benchmark
+      description: Name the system, benchmark, or deployment setting the card covers.
+    validations:
+      required: true
+  - type: textarea
+    id: claim
+    attributes:
+      label: Claim and evaluator frontier
+      description: What is being claimed, and where does unaided human supervision become weak?
+    validations:
+      required: true
+  - type: textarea
+    id: verifiers
+    attributes:
+      label: Verifier stack
+      description: List the hard verifiers, soft verifiers, human review channels, and external tools.
+    validations:
+      required: true
+  - type: textarea
+    id: constraints
+    attributes:
+      label: Hard constraints and rollback
+      description: Which constraints cannot be traded away, and who can pause, revise, or roll back?
+    validations:
+      required: true

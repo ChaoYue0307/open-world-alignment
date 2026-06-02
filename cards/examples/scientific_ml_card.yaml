@@ -1,0 +1,116 @@
+{
+  "schema_version": "0.1",
+  "system_name": "Scientific ML hypothesis generator",
+  "system_description": "A system that generates scientific hypotheses, candidate mechanisms, or predicted structures for expert review and experimental follow-up.",
+  "claim_type": {
+    "description": "The system is claimed to generate scientifically useful candidates in domains where unaided human review cannot fully verify correctness, novelty, mechanism, or downstream experimental consequences.",
+    "beyond_human_claim": true,
+    "claim_scope": "Specified scientific domain, data regime, validation protocol, and experimental or simulation setting.",
+    "supervision_boundary": "Unaided supervision becomes weak when claims require expensive experiments, specialized instrumentation, physical validation, or long-horizon replication."
+  },
+  "target_world_state": {
+    "intended_real_world_outcome": "The system should improve scientific discovery by proposing candidates that survive domain-appropriate validation and reduce wasted experimental effort.",
+    "evidence_required": "Experimental validation, replication, simulation fidelity, physical-law checks, held-out prediction performance, uncertainty calibration, and expert interpretation.",
+    "failure_definition": "A material failure includes fabricated evidence, unsupported causal claims, invalid simulations, non-replicable findings, unsafe experimental recommendations, or unreported uncertainty."
+  },
+  "human_signal_role": {
+    "labels_used": true,
+    "preferences_used": false,
+    "benchmarks_or_judges": [
+      "Expert review",
+      "Historical benchmark datasets",
+      "Peer review",
+      "Domain-specific evaluation benchmarks"
+    ],
+    "human_signal_can_verify": "Experts can judge plausibility, relevance, novelty framing, experimental feasibility, and interpretation of validation evidence.",
+    "human_signal_cannot_verify": "Unaided experts may not verify hidden data leakage, physical validity, expensive experimental outcomes, long-horizon replication, or causal mechanism.",
+    "role_in_decision": "Human signals frame the scientific question, select validation priorities, and interpret evidence, but empirical and physical verifiers decide whether claims are supported."
+  },
+  "verifier_stack": {
+    "hard_verifiers": [
+      "Held-out predictive performance",
+      "Experimental replication",
+      "Simulation fidelity checks",
+      "Physical-law consistency checks",
+      "Data leakage checks",
+      "Safety and biosafety review where applicable"
+    ],
+    "soft_verifiers": [
+      "Expert plausibility review",
+      "Novelty assessment",
+      "Interpretability review",
+      "Experimental feasibility review"
+    ],
+    "human_review_channels": [
+      "Domain scientist review",
+      "Lab safety review",
+      "Statistical review",
+      "Independent replication review"
+    ],
+    "external_tools_or_simulators": [
+      "Simulation environment",
+      "Experimental assay",
+      "Statistical validation pipeline",
+      "Uncertainty calibration tool",
+      "Literature search and prior-art check"
+    ],
+    "independence_rationale": "The stack separates expert plausibility from empirical validation, simulation from experiment, benchmark performance from replication, and novelty assessment from safety gates."
+  },
+  "hard_constraints": {
+    "non_negotiable_constraints": [
+      "No fabricated evidence",
+      "No unsupported causal claim presented as established",
+      "No unsafe experimental recommendation",
+      "No hidden data leakage",
+      "No violation of domain safety or resource limits"
+    ],
+    "enforcement_mechanism": "Block claims or downstream recommendations when validation, leakage, safety, or uncertainty gates fail.",
+    "override_policy": "No override for fabricated evidence, safety violations, or data leakage. Scientific uncertainty must be reported rather than suppressed."
+  },
+  "evaluator_frontier": {
+    "where_humans_become_weak_supervisors": "Humans become weak supervisors when candidates require costly validation, complex physical reasoning, hidden data audits, or long-horizon replication.",
+    "required_tooling_for_human_review": "Reviewers need validation reports, simulation traces, uncertainty estimates, assay protocols, leakage checks, and replication status.",
+    "abstention_or_escalation_conditions": [
+      "Uncertainty is high",
+      "Validation evidence conflicts",
+      "Candidate touches safety-sensitive domain",
+      "Data provenance is unclear",
+      "Simulation assumptions are violated",
+      "Replication fails or is unavailable"
+    ]
+  },
+  "absent_stakeholders": {
+    "affected_non_users": [
+      "Experimental participants or affected communities",
+      "Laboratory staff",
+      "Downstream practitioners",
+      "People affected by premature scientific claims"
+    ],
+    "future_or_downstream_stakeholders": [
+      "Future researchers building on the claim",
+      "Institutions allocating resources based on results",
+      "Patients, ecosystems, or communities affected by application",
+      "Replication teams"
+    ],
+    "representation_mechanism": "Represent stakeholders through ethics review, safety review, replication norms, uncertainty reporting, and clear limits on unsupported claims."
+  },
+  "monitoring_and_rollback": {
+    "deployment_signals_to_monitor": [
+      "Replication outcomes",
+      "Failed validation attempts",
+      "Safety incidents",
+      "Retractions or corrections",
+      "Resource use",
+      "Downstream misuse or overclaiming",
+      "Calibration drift"
+    ],
+    "rollback_triggers": [
+      "Failed independent replication",
+      "Confirmed data leakage",
+      "Safety violation",
+      "Evidence of fabricated or invalid validation",
+      "Material uncertainty omitted from reported claim"
+    ],
+    "revision_authority": "Project leads, safety reviewers, ethics boards, or publication owners can revise, suspend, retract, or withdraw the claim."
+  }
+}

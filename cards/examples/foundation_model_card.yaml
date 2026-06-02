@@ -1,0 +1,118 @@
+{
+  "schema_version": "0.1",
+  "system_name": "General-purpose foundation model assistant",
+  "system_description": "A foundation model deployed as an assistant for information seeking, writing, code help, and tool use.",
+  "claim_type": {
+    "description": "The system is claimed to provide broadly useful assistance across tasks where users may not be able to verify factual, security, privacy, or downstream consequences unaided.",
+    "beyond_human_claim": true,
+    "claim_scope": "General-purpose assistant behavior in supported languages, tools, policy settings, and deployment contexts.",
+    "supervision_boundary": "Unaided human supervision becomes weak when outputs require specialized expertise, hidden factual checking, adversarial misuse analysis, long-horizon consequences, or cross-tool state inspection."
+  },
+  "target_world_state": {
+    "intended_real_world_outcome": "Users should receive helpful, truthful, policy-compliant assistance without unacceptable misuse, privacy leakage, or hidden resource externalities.",
+    "evidence_required": "Factuality tests, citation checks, tool-use success rates, privacy leakage tests, misuse evaluations, expert review, user feedback, incident reports, and resource accounting.",
+    "failure_definition": "A material failure includes severe factual harm, privacy leakage, unsafe misuse assistance, unauthorized data exposure, repeated tool-use failure, or deployment incidents above agreed thresholds."
+  },
+  "human_signal_role": {
+    "labels_used": true,
+    "preferences_used": true,
+    "benchmarks_or_judges": [
+      "Helpfulness ratings",
+      "Expert review",
+      "User feedback",
+      "Policy evaluations",
+      "Judge models used as advisory signals"
+    ],
+    "human_signal_can_verify": "Human signals can assess usefulness, clarity, instruction following, policy interpretation, and whether answers appear responsive to user intent.",
+    "human_signal_cannot_verify": "Unaided humans may not reliably verify hidden factual errors, source fidelity, privacy leakage, tool side effects, misuse pathways, or long-horizon social impact.",
+    "role_in_decision": "Human signals inform training, preference tuning, policy evaluation, deployment monitoring, and escalation, but do not replace factual, safety, privacy, and resource checks."
+  },
+  "verifier_stack": {
+    "hard_verifiers": [
+      "Privacy leakage tests",
+      "Misuse policy evaluations",
+      "Tool execution checks",
+      "Citation fidelity checks for retrieval-backed answers",
+      "Security red-team findings above severity threshold"
+    ],
+    "soft_verifiers": [
+      "Helpfulness review",
+      "Expert qualitative review",
+      "Readability review",
+      "User satisfaction feedback"
+    ],
+    "human_review_channels": [
+      "Policy reviewer",
+      "Domain expert reviewer",
+      "Security reviewer",
+      "Privacy reviewer",
+      "Incident response owner"
+    ],
+    "external_tools_or_simulators": [
+      "Retrieval evaluation harness",
+      "Tool-use sandbox",
+      "Red-team evaluation suite",
+      "Privacy test suite",
+      "Deployment telemetry"
+    ],
+    "independence_rationale": "The stack separates user preference from expert review, judge-model outputs from factual checks, offline tests from deployment telemetry, and safety gates from aggregate helpfulness scores."
+  },
+  "hard_constraints": {
+    "non_negotiable_constraints": [
+      "No prohibited privacy leakage",
+      "No severe misuse enablement under defined threat models",
+      "No unauthorized access to external tools or data",
+      "No undisclosed policy override",
+      "No deployment without incident-response ownership"
+    ],
+    "enforcement_mechanism": "Block release or model update when hard safety, privacy, or tool-use gates fail; require documented owner approval for high-risk deployment changes.",
+    "override_policy": "No automatic override. Exceptions require documented review by the responsible safety, privacy, or deployment owner."
+  },
+  "evaluator_frontier": {
+    "where_humans_become_weak_supervisors": "Humans become weak supervisors when outputs require domain expertise, source verification, adversarial analysis, tool-state inspection, or delayed impact assessment.",
+    "required_tooling_for_human_review": "Reviewers need retrieval traces, tool logs, policy rationales, privacy scan output, red-team reports, and incident dashboards.",
+    "abstention_or_escalation_conditions": [
+      "High-stakes medical, legal, financial, security, or safety-sensitive request",
+      "Missing or conflicting sources",
+      "Tool state cannot be inspected",
+      "Policy uncertainty is high",
+      "Privacy risk is detected",
+      "Verifier disagreement is high"
+    ]
+  },
+  "absent_stakeholders": {
+    "affected_non_users": [
+      "People whose data appears in context",
+      "People affected by user decisions made with model assistance",
+      "Moderation and incident response teams",
+      "Communities affected by generated misinformation or misuse"
+    ],
+    "future_or_downstream_stakeholders": [
+      "Future users exposed to model updates",
+      "Organizations integrating the assistant",
+      "People affected by downstream publication or automation",
+      "Infrastructure and resource stakeholders"
+    ],
+    "representation_mechanism": "Represent absent stakeholders through policy review, privacy review, red-team evaluation, abuse reporting, incident analysis, and resource accounting."
+  },
+  "monitoring_and_rollback": {
+    "deployment_signals_to_monitor": [
+      "Abuse reports",
+      "Privacy incidents",
+      "Factuality incident reports",
+      "Tool-use failures",
+      "Policy violation rates",
+      "User appeals",
+      "Resource consumption",
+      "Rollback and mitigation records"
+    ],
+    "rollback_triggers": [
+      "Severe privacy leakage",
+      "Confirmed high-severity misuse enablement",
+      "Incident rate above pre-specified threshold",
+      "Critical tool-use failure",
+      "Policy gate invalidated by audit"
+    ],
+    "revision_authority": "Safety, privacy, security, and deployment owners can pause, restrict, roll back, or withdraw the model or specific capabilities."
+  }
+}

@@ -1,0 +1,113 @@
+{
+  "schema_version": "0.1",
+  "system_name": "Medium-range forecasting system",
+  "system_description": "A forecasting system that predicts future events or states for operational decision support.",
+  "claim_type": {
+    "description": "The system is claimed to produce forecasts that improve decisions in settings where unaided humans cannot reliably aggregate evidence, estimate calibration, or forecast downstream consequences.",
+    "beyond_human_claim": true,
+    "claim_scope": "Specified forecast horizon, domain, geography or population, input data regime, and decision context.",
+    "supervision_boundary": "Unaided human supervision becomes weak when forecast quality depends on calibration, distribution shift, rare events, delayed outcomes, or decision utility."
+  },
+  "target_world_state": {
+    "intended_real_world_outcome": "Forecasts should improve decisions by providing calibrated, timely, and decision-relevant probability estimates without hiding uncertainty or shifting risk to unrepresented groups.",
+    "evidence_required": "Out-of-sample accuracy, calibration curves, proper scoring rules, backtesting, stress tests, decision-utility analysis, and post-deployment monitoring.",
+    "failure_definition": "A material failure includes persistent miscalibration, high-impact missed events, harmful decision recommendations, unreported drift, or threshold violations in high-stakes settings."
+  },
+  "human_signal_role": {
+    "labels_used": true,
+    "preferences_used": false,
+    "benchmarks_or_judges": [
+      "Historical ground truth",
+      "Expert review",
+      "Forecasting benchmarks",
+      "Decision-maker feedback"
+    ],
+    "human_signal_can_verify": "Humans can specify decision needs, choose acceptable risk thresholds, interpret forecasts, and assess whether outputs fit operational context.",
+    "human_signal_cannot_verify": "Unaided humans may not reliably judge calibration, rare-event performance, distribution shift, counterfactual decision utility, or delayed harms.",
+    "role_in_decision": "Human signals define the decision context and acceptable risk, while out-of-sample outcomes and calibration metrics evaluate forecast quality."
+  },
+  "verifier_stack": {
+    "hard_verifiers": [
+      "Out-of-sample forecast accuracy",
+      "Calibration evaluation",
+      "Proper scoring rules",
+      "Backtesting on held-out periods",
+      "Drift detection",
+      "Reliability thresholds for high-stakes use"
+    ],
+    "soft_verifiers": [
+      "Expert plausibility review",
+      "Decision-maker usability review",
+      "Narrative explanation review"
+    ],
+    "human_review_channels": [
+      "Domain expert review",
+      "Operations owner review",
+      "Risk owner review",
+      "Affected stakeholder review where appropriate"
+    ],
+    "external_tools_or_simulators": [
+      "Backtesting harness",
+      "Calibration dashboard",
+      "Drift monitor",
+      "Decision-utility simulator",
+      "Incident tracker"
+    ],
+    "independence_rationale": "The stack separates historical backtests from live monitoring, calibration from narrative plausibility, expert review from outcome scoring, and decision utility from raw accuracy."
+  },
+  "hard_constraints": {
+    "non_negotiable_constraints": [
+      "No deployment when calibration falls below required threshold",
+      "No high-stakes automated action without human review",
+      "No suppression of uncertainty intervals",
+      "No use outside the validated forecast horizon or domain",
+      "No decision threshold change without risk-owner approval"
+    ],
+    "enforcement_mechanism": "Block deployment or trigger escalation when calibration, drift, domain, or threshold checks fail.",
+    "override_policy": "No automatic override. Any exception must be time-limited, documented, and approved by the risk or operations owner."
+  },
+  "evaluator_frontier": {
+    "where_humans_become_weak_supervisors": "Humans become weak supervisors when forecast quality depends on statistical calibration, rare-event behavior, interacting variables, or delayed outcome feedback.",
+    "required_tooling_for_human_review": "Reviewers need backtest reports, calibration plots, drift indicators, threshold justifications, forecast provenance, and decision-utility analysis.",
+    "abstention_or_escalation_conditions": [
+      "Inputs are outside training distribution",
+      "Calibration degrades",
+      "Forecast horizon exceeds validated scope",
+      "Rare-event uncertainty is high",
+      "Model and expert forecasts strongly disagree",
+      "Decision consequence is high"
+    ]
+  },
+  "absent_stakeholders": {
+    "affected_non_users": [
+      "People affected by decisions based on forecasts",
+      "Communities exposed to false alarms or missed warnings",
+      "Operators responsible for acting on forecasts"
+    ],
+    "future_or_downstream_stakeholders": [
+      "Future decision-makers using accumulated forecasts",
+      "Institutions relying on threshold policies",
+      "Populations affected by delayed or compounding forecast errors"
+    ],
+    "representation_mechanism": "Represent stakeholders through decision audits, appeal channels, outcome monitoring, and review of false-positive and false-negative impacts."
+  },
+  "monitoring_and_rollback": {
+    "deployment_signals_to_monitor": [
+      "Calibration drift",
+      "Out-of-sample error",
+      "False alarm rate",
+      "Missed-event rate",
+      "Decision outcome metrics",
+      "Appeals or complaints",
+      "Data pipeline failures"
+    ],
+    "rollback_triggers": [
+      "Calibration below threshold",
+      "Severe missed event linked to model failure",
+      "Domain shift invalidates validation",
+      "Decision harm above pre-specified threshold",
+      "Data pipeline integrity failure"
+    ],
+    "revision_authority": "Risk owners, operations leads, or governance boards can pause, revise, roll back, or withdraw the forecasting system."
+  }
+}

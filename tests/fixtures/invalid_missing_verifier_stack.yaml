@@ -1,0 +1,57 @@
+{
+  "schema_version": "0.1",
+  "system_name": "Invalid missing verifier stack",
+  "claim_type": {
+    "description": "A broad unsupported claim.",
+    "beyond_human_claim": true,
+    "claim_scope": "Unscoped.",
+    "supervision_boundary": "Humans cannot verify the claim."
+  },
+  "target_world_state": {
+    "intended_real_world_outcome": "Improve something important.",
+    "evidence_required": "Evidence is required.",
+    "failure_definition": "Failure is material."
+  },
+  "human_signal_role": {
+    "labels_used": true,
+    "preferences_used": true,
+    "benchmarks_or_judges": [
+      "A judge model"
+    ],
+    "human_signal_can_verify": "Surface quality.",
+    "human_signal_cannot_verify": "Real-world correctness.",
+    "role_in_decision": "Evaluation."
+  },
+  "hard_constraints": {
+    "non_negotiable_constraints": [
+      "No high-severity failure"
+    ],
+    "enforcement_mechanism": "Block release.",
+    "override_policy": "No override."
+  },
+  "evaluator_frontier": {
+    "where_humans_become_weak_supervisors": "Hard cases.",
+    "required_tooling_for_human_review": "Tools.",
+    "abstention_or_escalation_conditions": [
+      "Uncertainty"
+    ]
+  },
+  "absent_stakeholders": {
+    "affected_non_users": [
+      "Affected non-users"
+    ],
+    "future_or_downstream_stakeholders": [
+      "Future users"
+    ],
+    "representation_mechanism": "Review."
+  },
+  "monitoring_and_rollback": {
+    "deployment_signals_to_monitor": [
+      "Incidents"
+    ],
+    "rollback_triggers": [
+      "Severe incident"
+    ],
+    "revision_authority": "Owner."
+  }
+}

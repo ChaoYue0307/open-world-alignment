@@ -1,0 +1,70 @@
+{
+  "schema_version": "0.1",
+  "system_name": "",
+  "claim_type": {
+    "description": "",
+    "beyond_human_claim": true,
+    "claim_scope": "A scope.",
+    "supervision_boundary": "A boundary."
+  },
+  "target_world_state": {
+    "intended_real_world_outcome": "An outcome.",
+    "evidence_required": "Evidence.",
+    "failure_definition": "Failure."
+  },
+  "human_signal_role": {
+    "labels_used": true,
+    "preferences_used": false,
+    "benchmarks_or_judges": [],
+    "human_signal_can_verify": "Something.",
+    "human_signal_cannot_verify": "Something else.",
+    "role_in_decision": "Evaluation."
+  },
+  "verifier_stack": {
+    "hard_verifiers": [
+      "A hard verifier"
+    ],
+    "soft_verifiers": [
+      "A soft verifier"
+    ],
+    "human_review_channels": [
+      "A reviewer"
+    ],
+    "external_tools_or_simulators": [
+      "A tool"
+    ],
+    "independence_rationale": "Different evidence channels."
+  },
+  "hard_constraints": {
+    "non_negotiable_constraints": [
+      "A constraint"
+    ],
+    "enforcement_mechanism": "A gate.",
+    "override_policy": "No override."
+  },
+  "evaluator_frontier": {
+    "where_humans_become_weak_supervisors": "Hard cases.",
+    "required_tooling_for_human_review": "Tools.",
+    "abstention_or_escalation_conditions": [
+      "Uncertainty"
+    ]
+  },
+  "absent_stakeholders": {
+    "affected_non_users": [
+      "Affected people"
+    ],
+    "future_or_downstream_stakeholders": [
+      "Future users"
+    ],
+    "representation_mechanism": "Review."
+  },
+  "monitoring_and_rollback": {
+    "deployment_signals_to_monitor": [
+      "Incidents"
+    ],
+    "rollback_triggers": [
+      "Severe incident"
+    ],
+    "revision_authority": "Owner."
+  }
+}

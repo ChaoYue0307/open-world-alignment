@@ -1,0 +1,40 @@
+name: Validate Cards
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Validate all card YAML files
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import subprocess
+          import sys
+
+          cards = sorted(Path("cards").glob("**/*.yaml"))
+          if not cards:
+              print("No card files found", file=sys.stderr)
+              raise SystemExit(1)
+
+          for card in cards:
+              print(f"validating {card}")
+              subprocess.run([sys.executable, "scripts/validate_card.py", str(card)], check=True)
+          PY
+
+      - name: Parse JSON schema
+        run: python -m json.tool cards/open_world_evaluation_card.schema.json > /dev/null
+
+      - name: Run validator tests
+        run: python -m unittest discover -s tests
