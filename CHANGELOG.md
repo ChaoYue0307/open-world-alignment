@@ -4,6 +4,7 @@
 
 - Add Open-World Evaluation Card specification.
 - Add validation levels, schema v0.2 metadata, card variants, rubrics, quality tooling, rendered cards, and adoption guides.
+- Expand `awesome/` into a nested open-world evaluation taxonomy with recursive resource-format checks.
 
 ## v0.2.0
 

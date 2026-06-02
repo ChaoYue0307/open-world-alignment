@@ -21,18 +21,26 @@ When adding a card:
 6. Run:
 
 ```bash
-python scripts/validate_card.py path/to/card.yaml
+python3 scripts/validate_card.py path/to/card.yaml
 ```
 
 ## Resource Contributions
 
-When adding resources to `awesome/README.md`, include:
+When adding resources under `awesome/`, include:
 
 - A stable title.
 - A short note explaining why the resource matters for open-world alignment.
 - A topic category rather than a broad "misc" entry.
+- A stable URL without tracking parameters such as `utm_source`.
 
-Avoid promotional links, duplicate entries, and resources that only mention AI safety without contributing to evaluation, verification, monitoring, or governance.
+Avoid promotional links, duplicate entries, unapproved manuscript-hosting links, and resources that only mention AI safety without contributing to evaluation, verification, monitoring, or governance.
+
+Run:
+
+```bash
+make check-awesome
+make check-links
+```
 
 ## Writing Style
 

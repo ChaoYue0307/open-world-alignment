@@ -31,7 +31,7 @@ This repository turns that idea into reusable research artifacts.
 - [Failure-mode library](failure-modes/README.md): common ways benchmark and evaluation claims become overextended.
 - [Integrations](integrations/README.md): lightweight mappings for existing eval frameworks and governance vocabularies.
 - [Adoption guides](guides/for_researchers.md): audience-specific workflows for researchers, reviewers, builders, developers, and governance teams.
-- [Curated resources](awesome/README.md): papers and artifacts grouped by Evaluation Card dimension.
+- [Curated resources](awesome/README.md): a taxonomy of resources for places where direct human judgment stops being enough.
 
 ## 3-Minute Workflow
 
@@ -102,8 +102,6 @@ For a fuller map, see [docs/related_work.md](docs/related_work.md) and [awesome/
 - `checklists/`: reviewer and deployment checklists.
 - `reviewer-package/`: time-boxed checklists and red flags for artifact review.
 - `awesome/`: curated literature and tooling resources.
-- `integrations/`: mappings to existing evaluation frameworks and governance vocabularies.
-- `guides/`: adoption workflows by audience.
 - `docs/`: glossary and related-work notes.
 - `ROADMAP.md`: staged path toward v1.0.
 - `CHANGELOG.md`: project history.
