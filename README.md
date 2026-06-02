@@ -3,7 +3,7 @@
 [![Validate Cards](https://github.com/ChaoYue0307/open-world-alignment/actions/workflows/validate.yml/badge.svg)](https://github.com/ChaoYue0307/open-world-alignment/actions/workflows/validate.yml)
 [![License: MIT](https://img.shields.io/badge/code-MIT-green.svg)](LICENSE)
 [![Docs: CC BY 4.0](https://img.shields.io/badge/docs-CC_BY_4.0-blue.svg)](LICENSE-docs)
-![Card schema: v0.1](https://img.shields.io/badge/card_schema-v0.1-informational)
+![Card schema: v0.2](https://img.shields.io/badge/card_schema-v0.2-informational)
 
 Evaluation infrastructure for AI systems beyond direct human supervision.
 
@@ -23,9 +23,14 @@ This repository turns that idea into reusable research artifacts.
 - [Open-World Evaluation Card template](cards/open_world_evaluation_card.md): a reporting artifact for beyond-human or ASI-relevant claims.
 - [Machine-readable card template](cards/open_world_evaluation_card.yaml): a JSON-compatible YAML card that can be validated without extra dependencies.
 - [JSON Schema](cards/open_world_evaluation_card.schema.json): the current schema for automated checks.
+- [Specification](SPEC.md): the canonical definition of the card, its scope, validation levels, and compatibility policy.
 - [Filled example cards](cards/examples/): coding agents, foundation models, scientific ML, and forecasting.
 - [Verifier-stack templates](verifier-stacks/): domain checklists for designing stronger evidence channels.
 - [Reviewer checklist](checklists/reviewer_checklist.md): a compact checklist for papers, benchmarks, and deployment reports.
+- [Reviewer package](reviewer-package/README.md): 5-minute, 15-minute, and full artifact-review checklists.
+- [Failure-mode library](failure-modes/README.md): common ways benchmark and evaluation claims become overextended.
+- [Integrations](integrations/README.md): lightweight mappings for existing eval frameworks and governance vocabularies.
+- [Adoption guides](guides/for_researchers.md): audience-specific workflows for researchers, reviewers, builders, developers, and governance teams.
 - [Curated resources](awesome/README.md): papers and artifacts grouped by Evaluation Card dimension.
 
 ## 3-Minute Workflow
@@ -50,13 +55,13 @@ Fill in the eight required dimensions:
 Validate the card:
 
 ```bash
-python scripts/validate_card.py my_card.yaml
+python3 scripts/validate_card.py my_card.yaml
 ```
 
 Or validate all example cards:
 
 ```bash
-find cards -name '*.yaml' -print0 | xargs -0 -n1 python scripts/validate_card.py
+find cards -name '*.yaml' -print0 | xargs -0 -n1 python3 scripts/validate_card.py
 ```
 
 ## Open-World Evaluation Card
@@ -72,7 +77,7 @@ The card asks each system or benchmark to separate human-facing evidence from wo
 - which affected stakeholders are absent from the rating loop;
 - which deployment signals trigger revision, suspension, rollback, or withdrawal.
 
-See [cards/README.md](cards/README.md) for adaptation guidance and quality criteria.
+See [cards/README.md](cards/README.md) for adaptation guidance and quality criteria. The current schema is stable enough for research use, benchmark documentation, and review checklists, but it is not yet a v1.0 standard.
 
 ## Selected Related Work
 
@@ -89,10 +94,19 @@ For a fuller map, see [docs/related_work.md](docs/related_work.md) and [awesome/
 - `cards/`: card templates, schema, and filled examples.
 - `scripts/`: dependency-light validation tools.
 - `tests/`: validator behavior tests and invalid fixtures.
+- `rubrics/`: maturity rubrics for scoring card quality.
+- `failure-modes/`: common overclaiming and verifier-stack failure modes.
+- `integrations/`: lightweight mappings from existing evaluation frameworks.
+- `guides/`: audience-specific adoption guides.
 - `verifier-stacks/`: domain-specific verifier-stack templates.
 - `checklists/`: reviewer and deployment checklists.
+- `reviewer-package/`: time-boxed checklists and red flags for artifact review.
 - `awesome/`: curated literature and tooling resources.
+- `integrations/`: mappings to existing evaluation frameworks and governance vocabularies.
+- `guides/`: adoption workflows by audience.
 - `docs/`: glossary and related-work notes.
+- `ROADMAP.md`: staged path toward v1.0.
+- `CHANGELOG.md`: project history.
 
 ## Citation
 

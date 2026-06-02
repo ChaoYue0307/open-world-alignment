@@ -1,0 +1,163 @@
+{
+  "schema_version": "0.2",
+  "card_id": "owa-example-robotics-agent",
+  "card_status": "draft",
+  "system_name": "Robotics manipulation agent",
+  "system_version": "example",
+  "system_description": "A robot policy that performs manipulation tasks in a bounded physical environment.",
+  "authors": [
+    "Open-World Alignment Toolkit"
+  ],
+  "reviewers": [
+    "Robotics safety reviewer"
+  ],
+  "date_created": "2026-06-02",
+  "date_updated": "2026-06-02",
+  "risk_tier": "high",
+  "deployment_stage": "pilot",
+  "intended_use": "Evaluate robot manipulation under physical safety constraints.",
+  "out_of_scope_uses": [
+    "Unsupervised deployment in unvalidated physical environments"
+  ],
+  "claim_type": {
+    "description": "The robot is claimed to complete specified manipulation tasks in a bounded environment under safety monitors and operator oversight.",
+    "beyond_human_claim": false,
+    "claim_scope": "Specified robot hardware, workspace, objects, tasks, and operating conditions.",
+    "supervision_boundary": "Humans become weak supervisors when physical interactions are fast, partially observable, or produce delayed equipment or safety consequences."
+  },
+  "claim_boundaries": {
+    "supported_claims": [
+      "Robot can complete specified tasks under validated conditions."
+    ],
+    "unsupported_claims": [
+      "Robot is safe in arbitrary environments.",
+      "Simulation success proves physical safety."
+    ],
+    "known_failure_modes": [
+      "Sim-to-real gap",
+      "Unsafe contact",
+      "Sensor drift",
+      "Object distribution shift"
+    ]
+  },
+  "target_world_state": {
+    "intended_real_world_outcome": "Robot completes tasks without unsafe contact, equipment damage, or unmonitored failures.",
+    "evidence_required": "Simulation tests, physical trials, safety interlocks, failure logs, operator review, and incident monitoring.",
+    "failure_definition": "Unsafe motion, collision, safety-zone violation, equipment damage, or uncontrolled task failure."
+  },
+  "human_signal_role": {
+    "labels_used": true,
+    "preferences_used": false,
+    "benchmarks_or_judges": [
+      "Operator review",
+      "Task success labels",
+      "Safety trial reports"
+    ],
+    "human_signal_can_verify": "Humans can assess visible task success, workspace fit, and operator usability.",
+    "human_signal_cannot_verify": "Humans may not verify hidden sensor drift, force thresholds, near misses, or delayed equipment degradation unaided.",
+    "role_in_decision": "Human review authorizes tasks and interprets incidents; physical safety monitors are hard gates."
+  },
+  "verifier_stack": {
+    "hard_verifiers": [
+      "Safety interlocks",
+      "Collision checks",
+      "Force and speed thresholds",
+      "Physical trial pass rates"
+    ],
+    "soft_verifiers": [
+      "Operator usability review",
+      "Task strategy review"
+    ],
+    "human_review_channels": [
+      "Operator review",
+      "Safety engineer review"
+    ],
+    "external_tools_or_simulators": [
+      "Physics simulator",
+      "Sensor monitor",
+      "Incident logger"
+    ],
+    "independence_rationale": "Separates simulation, physical trials, operator review, and safety interlocks.",
+    "verifier_gaming_tests": [
+      "Object perturbation tests",
+      "Sensor-noise tests"
+    ],
+    "correlated_failure_risks": [
+      "Simulator assumptions shared with policy training",
+      "Limited object distribution"
+    ]
+  },
+  "hard_constraints": {
+    "non_negotiable_constraints": [
+      "No safety-zone violation",
+      "No disabled emergency stop",
+      "No deployment outside validated workspace"
+    ],
+    "enforcement_mechanism": "Hardware interlocks, monitoring thresholds, and operator stop authority.",
+    "override_policy": "No automated override of physical safety interlocks."
+  },
+  "evaluator_frontier": {
+    "where_humans_become_weak_supervisors": "Fast physical motion, hidden force accumulation, sensor drift, and sim-to-real gaps.",
+    "required_tooling_for_human_review": "Trial logs, sensor traces, video, force reports, and incident reports.",
+    "abstention_or_escalation_conditions": [
+      "Object outside distribution",
+      "Sensor confidence low",
+      "Near miss detected",
+      "Workspace changes"
+    ]
+  },
+  "uncertainty": {
+    "known_unknowns": [
+      "Unseen object behavior",
+      "Long-term hardware wear"
+    ],
+    "distribution_shift_conditions": [
+      "New workspace",
+      "New object class"
+    ],
+    "abstention_policy": "Stop or request operator review when safety confidence is low."
+  },
+  "absent_stakeholders": {
+    "affected_non_users": [
+      "People near the robot",
+      "Operators responsible for incidents"
+    ],
+    "future_or_downstream_stakeholders": [
+      "Maintenance teams",
+      "Facility safety teams"
+    ],
+    "representation_mechanism": "Safety procedures, incident review, and operator stop authority."
+  },
+  "monitoring_and_rollback": {
+    "deployment_signals_to_monitor": [
+      "Near misses",
+      "Safety-zone violations",
+      "Emergency stops",
+      "Sensor drift",
+      "Equipment damage"
+    ],
+    "rollback_triggers": [
+      "Safety-zone violation",
+      "Collision incident",
+      "Repeated near misses"
+    ],
+    "revision_authority": "Safety engineer or deployment owner.",
+    "review_frequency": "Before workspace changes and after incidents.",
+    "incident_response_path": "Stop robot, preserve logs, inspect hardware, and revise or withdraw policy."
+  },
+  "evidence_bundle": {
+    "artifacts": [
+      "Trial protocol"
+    ],
+    "datasets": [
+      "Task trial logs"
+    ],
+    "eval_harnesses": [
+      "Simulation and physical trial harness"
+    ],
+    "logs_or_reports": [
+      "Safety incident report"
+    ],
+    "reproducibility_notes": "Record hardware, sensors, workspace, object set, and policy version."
+  }
+}

@@ -1,0 +1,161 @@
+{
+  "schema_version": "0.2",
+  "card_id": "owa-example-climate-policy-model",
+  "card_status": "draft",
+  "system_name": "Climate policy decision-support model",
+  "system_version": "example",
+  "system_description": "A model that supports analysis of climate or sustainability interventions under uncertainty.",
+  "authors": [
+    "Open-World Alignment Toolkit"
+  ],
+  "reviewers": [
+    "Sustainability reviewer"
+  ],
+  "date_created": "2026-06-02",
+  "date_updated": "2026-06-02",
+  "risk_tier": "high",
+  "deployment_stage": "research",
+  "intended_use": "Support climate policy analysis with explicit externality accounting.",
+  "out_of_scope_uses": [
+    "Automated policy decision-making"
+  ],
+  "claim_type": {
+    "description": "The model is claimed to support climate policy analysis under stated assumptions, data sources, and validation limits.",
+    "beyond_human_claim": false,
+    "claim_scope": "Specified geography, intervention class, emissions accounting boundary, and decision context.",
+    "supervision_boundary": "Humans become weak supervisors when outcomes depend on delayed ecological, economic, or rebound effects."
+  },
+  "claim_boundaries": {
+    "supported_claims": [
+      "The model can compare scenarios under documented assumptions."
+    ],
+    "unsupported_claims": [
+      "The model proves a policy is optimal.",
+      "Short-term efficiency implies net sustainability benefit."
+    ],
+    "known_failure_modes": [
+      "Rebound effects",
+      "Externality laundering",
+      "Boundary mis-specification",
+      "Distribution shift"
+    ]
+  },
+  "target_world_state": {
+    "intended_real_world_outcome": "Policy analysis should improve climate or sustainability decisions without hiding rebound effects, ecological harms, or distributional impacts.",
+    "evidence_required": "Scenario validation, lifecycle accounting, uncertainty analysis, stakeholder review, and post-deployment outcome tracking.",
+    "failure_definition": "Policy recommendation hides material externalities, overstates certainty, or worsens monitored outcomes."
+  },
+  "human_signal_role": {
+    "labels_used": true,
+    "preferences_used": true,
+    "benchmarks_or_judges": [
+      "Expert review",
+      "Stakeholder consultation",
+      "Scenario benchmark"
+    ],
+    "human_signal_can_verify": "Humans can set policy goals, review assumptions, and interpret tradeoffs.",
+    "human_signal_cannot_verify": "Unaided humans may not verify long-term ecological effects, rebound effects, or hidden lifecycle impacts.",
+    "role_in_decision": "Human mandate sets policy goals; lifecycle and field evidence constrain claims."
+  },
+  "verifier_stack": {
+    "hard_verifiers": [
+      "Lifecycle accounting",
+      "Scenario backtesting",
+      "Sensitivity analysis",
+      "Resource budget checks"
+    ],
+    "soft_verifiers": [
+      "Policy expert review",
+      "Stakeholder review"
+    ],
+    "human_review_channels": [
+      "Policy reviewer",
+      "Community or stakeholder review"
+    ],
+    "external_tools_or_simulators": [
+      "Climate scenario model",
+      "Lifecycle assessment tool",
+      "Monitoring dashboard"
+    ],
+    "independence_rationale": "Separates policy preferences, scenario modeling, lifecycle accounting, and stakeholder review.",
+    "verifier_gaming_tests": [
+      "Boundary sensitivity tests",
+      "Rebound-effect stress tests"
+    ],
+    "correlated_failure_risks": [
+      "Shared emissions assumptions",
+      "Data gaps for affected communities"
+    ]
+  },
+  "hard_constraints": {
+    "non_negotiable_constraints": [
+      "No unsupported optimality claim",
+      "No omitted material lifecycle boundary",
+      "No hidden resource-ceiling violation"
+    ],
+    "enforcement_mechanism": "Scenario documentation, lifecycle gates, and policy review.",
+    "override_policy": "No override for material externality disclosure."
+  },
+  "evaluator_frontier": {
+    "where_humans_become_weak_supervisors": "Delayed climate outcomes, rebound effects, ecosystem impacts, and distributional consequences.",
+    "required_tooling_for_human_review": "Scenario assumptions, lifecycle reports, sensitivity analysis, and stakeholder impact reports.",
+    "abstention_or_escalation_conditions": [
+      "High uncertainty",
+      "Boundary assumptions contested",
+      "Potential harm to absent stakeholders"
+    ]
+  },
+  "uncertainty": {
+    "known_unknowns": [
+      "Long-term rebound effects",
+      "Ecological feedback loops"
+    ],
+    "distribution_shift_conditions": [
+      "New geography",
+      "Changed policy environment"
+    ],
+    "abstention_policy": "Report uncertainty and avoid prescriptive recommendations when evidence is insufficient."
+  },
+  "absent_stakeholders": {
+    "affected_non_users": [
+      "Communities affected by policy",
+      "Ecosystems affected by intervention"
+    ],
+    "future_or_downstream_stakeholders": [
+      "Future populations",
+      "Downstream resource users"
+    ],
+    "representation_mechanism": "Stakeholder consultation, environmental monitoring, and lifecycle reporting."
+  },
+  "monitoring_and_rollback": {
+    "deployment_signals_to_monitor": [
+      "Emissions outcomes",
+      "Resource use",
+      "Rebound effects",
+      "Distributional harms"
+    ],
+    "rollback_triggers": [
+      "Material externality discovered",
+      "Resource ceiling exceeded",
+      "Outcome drift invalidates assumptions"
+    ],
+    "revision_authority": "Policy owner, governance board, or sustainability reviewer.",
+    "review_frequency": "At scenario updates and monitored outcome intervals.",
+    "incident_response_path": "Revise assumptions, flag affected recommendations, and withdraw unsupported claims."
+  },
+  "evidence_bundle": {
+    "artifacts": [
+      "Scenario report"
+    ],
+    "datasets": [
+      "Emissions and lifecycle datasets"
+    ],
+    "eval_harnesses": [
+      "Scenario and sensitivity pipeline"
+    ],
+    "logs_or_reports": [
+      "Monitoring report"
+    ],
+    "reproducibility_notes": "Record scenario assumptions, model version, boundaries, and accounting methods."
+  }
+}

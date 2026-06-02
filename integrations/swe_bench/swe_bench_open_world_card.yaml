@@ -1,0 +1,145 @@
+{
+  "schema_version": "0.2",
+  "card_id": "owa-integration-swe-bench",
+  "card_status": "draft",
+  "system_name": "SWE-bench open-world benchmark card",
+  "system_version": "integration-note",
+  "system_description": "A benchmark card describing what SWE-bench-style executable issue-resolution evaluation can and cannot support.",
+  "authors": [
+    "Open-World Alignment Toolkit"
+  ],
+  "reviewers": [
+    "Benchmark owner"
+  ],
+  "date_created": "2026-06-02",
+  "date_updated": "2026-06-02",
+  "risk_tier": "medium",
+  "deployment_stage": "research",
+  "intended_use": "Document claims supported by repository-level coding-agent benchmark results.",
+  "out_of_scope_uses": [
+    "Deployment safety claim",
+    "General software engineering competence claim",
+    "Security correctness claim without separate checks"
+  ],
+  "claim_type": {
+    "description": "A SWE-bench-style result supports repository-level issue-resolution performance under benchmark conditions and executable checks.",
+    "beyond_human_claim": false,
+    "claim_scope": "Benchmark tasks, selected repositories, patch generation conditions, and executable test harness.",
+    "supervision_boundary": "Humans become weak supervisors when patch effects are hidden, tests are incomplete, or task distribution differs from deployment."
+  },
+  "claim_boundaries": {
+    "supported_claims": [
+      "The evaluated system can produce patches that pass the benchmark checks on reported tasks."
+    ],
+    "unsupported_claims": [
+      "The system is generally reliable across all software engineering tasks.",
+      "The system is safe for autonomous deployment.",
+      "The benchmark result establishes security, maintainability, or product-fit quality."
+    ],
+    "known_failure_modes": [
+      "Patch overfits visible checks",
+      "Hidden maintainability regression",
+      "Repository distribution shift"
+    ]
+  },
+  "target_world_state": {
+    "intended_real_world_outcome": "Benchmark evidence should improve understanding of coding-agent issue-resolution ability without overstating deployment readiness.",
+    "evidence_required": "Benchmark task definitions, patch artifacts, executable test results, contamination analysis, and review of unsupported claims.",
+    "failure_definition": "Benchmark result is used to claim broader coding competence, safety, or deployment readiness without additional evidence."
+  },
+  "human_signal_role": {
+    "labels_used": true,
+    "preferences_used": false,
+    "benchmarks_or_judges": [
+      "SWE-bench-style task set",
+      "Executable tests",
+      "Patch review"
+    ],
+    "human_signal_can_verify": "Humans can inspect task relevance, patch readability, and benchmark construction.",
+    "human_signal_cannot_verify": "Unaided review may not detect hidden regressions, contamination, or untested side effects.",
+    "role_in_decision": "Human review interprets benchmark scope; executable checks provide hard evidence for reported tasks."
+  },
+  "verifier_stack": {
+    "hard_verifiers": [
+      "Executable repository tests",
+      "Patch application check",
+      "Contamination audit"
+    ],
+    "soft_verifiers": [
+      "Patch maintainability review",
+      "Benchmark task representativeness review"
+    ],
+    "human_review_channels": [
+      "Benchmark maintainer review",
+      "Repository maintainer sampling"
+    ],
+    "external_tools_or_simulators": [
+      "Benchmark harness",
+      "Repository test environment"
+    ],
+    "independence_rationale": "Executable checks and human patch review examine different evidence channels; neither establishes deployment readiness alone.",
+    "verifier_gaming_tests": [
+      "Hidden-test evaluation",
+      "Patch review for test weakening"
+    ],
+    "correlated_failure_risks": [
+      "Benchmark repositories may not represent deployment repositories",
+      "Visible tests may share assumptions with hidden tests"
+    ]
+  },
+  "hard_constraints": {
+    "non_negotiable_constraints": [
+      "No deployment-safety claim from benchmark score alone",
+      "No security claim without separate security checks",
+      "No claim beyond the evaluated repository/task distribution"
+    ],
+    "enforcement_mechanism": "Benchmark reports must include supported and unsupported claims.",
+    "override_policy": "No override for unsupported broad claims in benchmark documentation."
+  },
+  "evaluator_frontier": {
+    "where_humans_become_weak_supervisors": "Complex patches, incomplete tests, hidden regressions, and repository distribution shifts.",
+    "required_tooling_for_human_review": "Patch artifacts, test logs, task metadata, contamination reports, and maintainability sampling.",
+    "abstention_or_escalation_conditions": [
+      "Patch cannot be reproduced",
+      "Contamination suspected",
+      "Claim extends beyond benchmark scope"
+    ]
+  },
+  "uncertainty": {
+    "known_unknowns": [
+      "Coverage of hidden regressions",
+      "Representativeness of repository sample"
+    ],
+    "distribution_shift_conditions": [
+      "New repository ecosystem",
+      "Autonomous deployment setting"
+    ],
+    "abstention_policy": "Do not infer deployment readiness without additional deployment-stage evidence."
+  },
+  "absent_stakeholders": {
+    "affected_non_users": [
+      "Repository maintainers",
+      "Downstream users of patched software"
+    ],
+    "future_or_downstream_stakeholders": [
+      "Security teams",
+      "Product teams"
+    ],
+    "representation_mechanism": "Patch review, downstream monitoring, and explicit unsupported-claim reporting."
+  },
+  "monitoring_and_rollback": {
+    "deployment_signals_to_monitor": [
+      "Post-merge defects",
+      "Security regressions",
+      "Maintainer reversions"
+    ],
+    "rollback_triggers": [
+      "Benchmark-derived claim used outside scope",
+      "Hidden regression discovered",
+      "Contamination invalidates reported result"
+    ],
+    "revision_authority": "Benchmark owner or deployment reviewer.",
+    "review_frequency": "At benchmark version updates and major task-set changes.",
+    "incident_response_path": "Update benchmark card, mark affected claims unsupported, and revise reported result scope."
+  }
+}

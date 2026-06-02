@@ -20,12 +20,75 @@
     "schema_version": {
       "type": "string"
     },
+    "card_id": {
+      "type": "string"
+    },
+    "card_status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "reviewed",
+        "audit-ready",
+        "deprecated"
+      ]
+    },
     "system_name": {
       "type": "string",
       "minLength": 1
     },
+    "system_version": {
+      "type": "string"
+    },
     "system_description": {
       "type": "string"
+    },
+    "authors": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "reviewers": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "date_created": {
+      "type": "string"
+    },
+    "date_updated": {
+      "type": "string"
+    },
+    "risk_tier": {
+      "type": "string",
+      "enum": [
+        "low",
+        "medium",
+        "high",
+        "frontier",
+        "low | medium | high | frontier"
+      ]
+    },
+    "deployment_stage": {
+      "type": "string",
+      "enum": [
+        "research",
+        "benchmark",
+        "pilot",
+        "production",
+        "post-deployment",
+        "research | benchmark | pilot | production | post-deployment"
+      ]
+    },
+    "intended_use": {
+      "type": "string"
+    },
+    "out_of_scope_uses": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
     },
     "claim_type": {
       "type": "object",
@@ -72,6 +135,29 @@
         "failure_definition": {
           "type": "string",
           "minLength": 1
+        }
+      }
+    },
+    "claim_boundaries": {
+      "type": "object",
+      "properties": {
+        "supported_claims": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "unsupported_claims": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "known_failure_modes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
         }
       }
     },
@@ -137,6 +223,18 @@
         "independence_rationale": {
           "type": "string",
           "minLength": 1
+        },
+        "verifier_gaming_tests": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "correlated_failure_risks": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
         }
       }
     },
@@ -182,6 +280,26 @@
         }
       }
     },
+    "uncertainty": {
+      "type": "object",
+      "properties": {
+        "known_unknowns": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "distribution_shift_conditions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "abstention_policy": {
+          "type": "string"
+        }
+      }
+    },
     "absent_stakeholders": {
       "type": "object",
       "required": [
@@ -219,6 +337,44 @@
         "revision_authority": {
           "type": "string",
           "minLength": 1
+        },
+        "review_frequency": {
+          "type": "string"
+        },
+        "incident_response_path": {
+          "type": "string"
+        }
+      }
+    },
+    "evidence_bundle": {
+      "type": "object",
+      "properties": {
+        "artifacts": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "datasets": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "eval_harnesses": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "logs_or_reports": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "reproducibility_notes": {
+          "type": "string"
         }
       }
     }

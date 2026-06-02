@@ -8,6 +8,22 @@
     "claim_scope": "Specified forecast horizon, domain, geography or population, input data regime, and decision context.",
     "supervision_boundary": "Unaided human supervision becomes weak when forecast quality depends on calibration, distribution shift, rare events, delayed outcomes, or decision utility."
   },
+  "claim_boundaries": {
+    "supported_claims": [
+      "The system provides calibrated forecasts under the stated horizon, domain, and data regime."
+    ],
+    "unsupported_claims": [
+      "The system is reliable outside the validated forecast horizon.",
+      "The system justifies automated high-stakes action without review.",
+      "Narrative plausibility establishes forecast quality."
+    ],
+    "known_failure_modes": [
+      "Miscalibration",
+      "Domain shift",
+      "Rare-event miss",
+      "Decision threshold misuse"
+    ]
+  },
   "target_world_state": {
     "intended_real_world_outcome": "Forecasts should improve decisions by providing calibrated, timely, and decision-relevant probability estimates without hiding uncertainty or shifting risk to unrepresented groups.",
     "evidence_required": "Out-of-sample accuracy, calibration curves, proper scoring rules, backtesting, stress tests, decision-utility analysis, and post-deployment monitoring.",
@@ -53,7 +69,16 @@
       "Decision-utility simulator",
       "Incident tracker"
     ],
-    "independence_rationale": "The stack separates historical backtests from live monitoring, calibration from narrative plausibility, expert review from outcome scoring, and decision utility from raw accuracy."
+    "independence_rationale": "The stack separates historical backtests from live monitoring, calibration from narrative plausibility, expert review from outcome scoring, and decision utility from raw accuracy.",
+    "verifier_gaming_tests": [
+      "Temporal holdout tests",
+      "Stress tests for rare events",
+      "Calibration under distribution shift"
+    ],
+    "correlated_failure_risks": [
+      "Shared historical data artifacts",
+      "Backtests that omit operational feedback loops"
+    ]
   },
   "hard_constraints": {
     "non_negotiable_constraints": [
@@ -77,6 +102,17 @@
       "Model and expert forecasts strongly disagree",
       "Decision consequence is high"
     ]
+  },
+  "uncertainty": {
+    "known_unknowns": [
+      "Rare-event behavior",
+      "Decision-maker response to forecasts"
+    ],
+    "distribution_shift_conditions": [
+      "New geography or population",
+      "Changed data pipeline"
+    ],
+    "abstention_policy": "Escalate when calibration degrades, inputs shift, or consequences are high."
   },
   "absent_stakeholders": {
     "affected_non_users": [
@@ -109,5 +145,23 @@
       "Data pipeline integrity failure"
     ],
     "revision_authority": "Risk owners, operations leads, or governance boards can pause, revise, roll back, or withdraw the forecasting system."
+  },
+  "evidence_bundle": {
+    "artifacts": [
+      "Forecast report",
+      "Threshold policy"
+    ],
+    "datasets": [
+      "Historical forecast and outcome data"
+    ],
+    "eval_harnesses": [
+      "Backtesting harness",
+      "Calibration dashboard"
+    ],
+    "logs_or_reports": [
+      "Drift report",
+      "Decision outcome audit"
+    ],
+    "reproducibility_notes": "Record forecast horizon, data version, scoring rules, and threshold settings."
   }
 }

@@ -1,0 +1,14 @@
+[project]
+name = "open-world-alignment"
+version = "0.2.0"
+description = "Evaluation infrastructure for AI systems beyond direct human supervision"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [
+  { name = "Chaoyue He" }
+]
+
+[tool.open-world-alignment]
+card_schema_version = "0.2"
+dependency_policy = "standard-library-first"

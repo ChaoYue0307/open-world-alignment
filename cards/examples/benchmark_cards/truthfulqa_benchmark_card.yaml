@@ -1,0 +1,168 @@
+{
+  "schema_version": "0.2",
+  "card_id": "owa-benchmark-truthfulqa-example",
+  "card_status": "draft",
+  "system_name": "Truthfulness QA benchmark",
+  "system_version": "example",
+  "system_description": "An illustrative benchmark card for truthfulness-oriented question answering.",
+  "authors": [
+    "Open-World Alignment Toolkit"
+  ],
+  "reviewers": [
+    "Benchmark reviewer"
+  ],
+  "date_created": "2026-06-02",
+  "date_updated": "2026-06-02",
+  "risk_tier": "medium",
+  "deployment_stage": "benchmark",
+  "intended_use": "Document truthfulness evidence and its limits.",
+  "out_of_scope_uses": [
+    "General factual reliability",
+    "Deployment safety",
+    "Resistance to all misinformation contexts"
+  ],
+  "benchmark_profile": {
+    "benchmark_name": "Truthfulness QA-style benchmark",
+    "benchmark_version": "example",
+    "target_construct": "Resistance to producing common falsehoods in QA",
+    "measurement_model": "Questions target known misconceptions and score answer truthfulness.",
+    "claim_supported": "Evidence of improved truthfulness on the benchmark distribution.",
+    "claim_not_supported": "Evidence of general epistemic reliability across domains and deployments.",
+    "tasks_outside_scope": [
+      "Long-form research synthesis",
+      "Real-time fact checking",
+      "Adversarial misinformation campaigns"
+    ],
+    "leaderboard_monitoring": [
+      "Prompt leakage",
+      "Memorization",
+      "Saturation"
+    ],
+    "update_policy": "Review item coverage and failure modes periodically."
+  },
+  "claim_type": {
+    "description": "The benchmark supports claims about avoiding benchmarked falsehoods under its QA format.",
+    "beyond_human_claim": false,
+    "claim_scope": "Truthfulness on the benchmark's misconception-focused question distribution.",
+    "supervision_boundary": "Human evaluators become weak when truth depends on specialized, changing, or contested evidence."
+  },
+  "claim_boundaries": {
+    "supported_claims": [
+      "Model is less likely to reproduce benchmarked falsehoods."
+    ],
+    "unsupported_claims": [
+      "Model is generally truthful",
+      "Model can verify all factual claims"
+    ],
+    "known_failure_modes": [
+      "Memorization",
+      "Overfitting to benchmark style",
+      "Truthfulness outside benchmark not measured"
+    ]
+  },
+  "target_world_state": {
+    "intended_real_world_outcome": "Evaluation should track whether systems avoid common falsehoods in benchmarked QA settings.",
+    "evidence_required": "Item validity, answer scoring, held-out checks, and domain expert review.",
+    "failure_definition": "High score is treated as general truthfulness or benchmark no longer captures relevant falsehoods."
+  },
+  "human_signal_role": {
+    "labels_used": true,
+    "preferences_used": false,
+    "benchmarks_or_judges": [
+      "Human-written questions",
+      "Truthfulness labels",
+      "Expert review"
+    ],
+    "human_signal_can_verify": "Humans can check many benchmark answers against known evidence.",
+    "human_signal_cannot_verify": "Humans may not verify specialized, ambiguous, changing, or adversarial claims unaided.",
+    "role_in_decision": "Human labels define benchmark targets but do not establish truthfulness outside scope."
+  },
+  "verifier_stack": {
+    "hard_verifiers": [
+      "Answer-key consistency checks",
+      "Held-out item checks",
+      "Contamination review"
+    ],
+    "soft_verifiers": [
+      "Expert item review",
+      "Error analysis"
+    ],
+    "human_review_channels": [
+      "Domain reviewer"
+    ],
+    "external_tools_or_simulators": [
+      "Benchmark scorer"
+    ],
+    "independence_rationale": "Separates benchmark labels, held-out items, and expert review.",
+    "verifier_gaming_tests": [
+      "Paraphrased questions",
+      "Held-out misconceptions"
+    ],
+    "correlated_failure_risks": [
+      "Shared answer-key assumptions"
+    ]
+  },
+  "hard_constraints": {
+    "non_negotiable_constraints": [
+      "No general truthfulness claim from benchmark score alone"
+    ],
+    "enforcement_mechanism": "Report unsupported claims with benchmark results.",
+    "override_policy": "No override for claim boundary disclosure."
+  },
+  "evaluator_frontier": {
+    "where_humans_become_weak_supervisors": "Specialized, changing, or contested claims where reviewers need external evidence.",
+    "required_tooling_for_human_review": "Source notes, item documentation, and scoring reports.",
+    "abstention_or_escalation_conditions": [
+      "Evidence is contested",
+      "Question falls outside benchmark scope"
+    ]
+  },
+  "uncertainty": {
+    "known_unknowns": [
+      "Generalization to new misconceptions"
+    ],
+    "distribution_shift_conditions": [
+      "New domains or adversarial phrasing"
+    ],
+    "abstention_policy": "Do not infer broad factual reliability."
+  },
+  "absent_stakeholders": {
+    "affected_non_users": [
+      "People affected by factual errors in deployment"
+    ],
+    "future_or_downstream_stakeholders": [
+      "Users relying on answers outside benchmark scope"
+    ],
+    "representation_mechanism": "Report scope limits and collect deployment incidents."
+  },
+  "monitoring_and_rollback": {
+    "deployment_signals_to_monitor": [
+      "Benchmark saturation",
+      "Item leakage",
+      "New falsehood classes"
+    ],
+    "rollback_triggers": [
+      "Confirmed contamination",
+      "Invalid item set",
+      "Construct validity failure"
+    ],
+    "revision_authority": "Benchmark maintainers.",
+    "review_frequency": "At benchmark updates and saturation events.",
+    "incident_response_path": "Flag results and revise item documentation."
+  },
+  "evidence_bundle": {
+    "artifacts": [
+      "Benchmark documentation"
+    ],
+    "datasets": [
+      "QA item set"
+    ],
+    "eval_harnesses": [
+      "Benchmark scorer"
+    ],
+    "logs_or_reports": [
+      "Evaluation report"
+    ],
+    "reproducibility_notes": "Record benchmark version and scoring settings."
+  }
+}

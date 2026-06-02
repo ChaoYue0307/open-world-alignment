@@ -1,65 +1,73 @@
 # Coding Agent Verifier Stack
 
-Use this stack when a system generates, edits, reviews, or selects code changes for repository-level issues.
+## Domain Claim
 
-## Human Signal
+The system proposes, edits, reviews, or selects code changes for repository-level tasks.
+
+## Human Signals
 
 - Issue interpretation
 - Maintainer preferences
-- Code style review
-- Architecture and maintainability judgment
-- Release-risk judgment
+- Code review
+- Architecture and release-risk judgment
+
+## Human-Signal Limits
+
+Humans are weak supervisors when the change is large, cross-cutting, security-sensitive, performance-sensitive, or hard to reproduce locally.
 
 ## Hard Verifiers
 
 - Build and compilation checks
-- Existing unit and regression tests
-- Hidden tests
+- Unit, regression, and hidden tests
+- Type checks and linters
 - Reproducer scripts
-- Type checks
-- Security scans
-- License and dependency policy checks
+- Security and dependency-policy checks
 - Performance regression checks for critical paths
 
 ## Soft Verifiers
 
-- Readability review
-- Documentation quality review
-- Architectural fit review
+- Maintainability review
+- Architecture review
+- Documentation review
 - Model-generated critique used only as advisory evidence
+
+## Independence Rationale
+
+Executable checks, policy checks, and human review test different failure surfaces and should not be treated as interchangeable.
+
+## Verifier-Gaming Risks
+
+- Patch passes visible tests while missing the bug.
+- Patch overfits to benchmark harness.
+- Patch removes or weakens relevant tests.
+- Reviewer accepts plausible code without reproduction.
 
 ## Hard Constraints
 
-- No failed existing tests
-- No high-severity vulnerability
-- No secret or private-data leakage
-- No unauthorized dependency, license, or public API change
-- No regression beyond critical performance, safety, or compatibility budgets
+- No failing existing tests.
+- No high-severity vulnerability.
+- No secret or private-data leakage.
+- No unauthorized dependency, license, or public API change.
 
 ## Escalation Conditions
 
 - Conflicting tests
 - Weak coverage
-- Security-critical code paths
+- Security-critical paths
 - Underspecified issue
 - Large or cross-cutting diff
-- Inability to reproduce the bug
-- High verifier disagreement
 
-## Monitoring
+## Monitoring Signals
 
 - Revert rate
 - Escaped defects
-- Incident reports
 - Security tickets
 - Performance regressions
 - User bug reports
-- Maintenance burden
 
 ## Rollback Triggers
 
 - Hard-constraint violation
 - Severe incident linked to the patch
 - High-severity vulnerability detected
-- Regression above a pre-specified threshold
 - Maintainer or security owner invalidates the verifier evidence

@@ -1,0 +1,83 @@
+{
+  "schema_version": "0.2",
+  "system_name": "Placeholder card",
+  "claim_type": {
+    "description": "Replace with the claim.",
+    "beyond_human_claim": true,
+    "claim_scope": "Replace with scope.",
+    "supervision_boundary": "Replace with boundary."
+  },
+  "claim_boundaries": {
+    "supported_claims": [
+      "Replace with supported claim."
+    ],
+    "unsupported_claims": [
+      "Replace with unsupported claim."
+    ],
+    "known_failure_modes": [
+      "Replace with failure mode."
+    ]
+  },
+  "target_world_state": {
+    "intended_real_world_outcome": "Replace with outcome.",
+    "evidence_required": "Replace with evidence.",
+    "failure_definition": "Replace with failure."
+  },
+  "human_signal_role": {
+    "labels_used": true,
+    "preferences_used": false,
+    "benchmarks_or_judges": [
+      "Human review"
+    ],
+    "human_signal_can_verify": "Surface quality.",
+    "human_signal_cannot_verify": "World correctness.",
+    "role_in_decision": "Evaluation input."
+  },
+  "verifier_stack": {
+    "hard_verifiers": [
+      "Hard verifier"
+    ],
+    "soft_verifiers": [
+      "Soft verifier"
+    ],
+    "human_review_channels": [
+      "Reviewer"
+    ],
+    "external_tools_or_simulators": [
+      "Tool"
+    ],
+    "independence_rationale": "Different evidence channels are used."
+  },
+  "hard_constraints": {
+    "non_negotiable_constraints": [
+      "Hard constraint"
+    ],
+    "enforcement_mechanism": "Block release when gate fails.",
+    "override_policy": "No override."
+  },
+  "evaluator_frontier": {
+    "where_humans_become_weak_supervisors": "Hard cases.",
+    "required_tooling_for_human_review": "Tools.",
+    "abstention_or_escalation_conditions": [
+      "Uncertainty"
+    ]
+  },
+  "absent_stakeholders": {
+    "affected_non_users": [
+      "Affected people"
+    ],
+    "future_or_downstream_stakeholders": [
+      "Future users"
+    ],
+    "representation_mechanism": "Review."
+  },
+  "monitoring_and_rollback": {
+    "deployment_signals_to_monitor": [
+      "Incidents"
+    ],
+    "rollback_triggers": [
+      "Severe incident"
+    ],
+    "revision_authority": "Specific owner role."
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "schema_version": "0.1",
+  "scale": {
+    "0": "missing",
+    "1": "mentioned but vague",
+    "2": "concrete but incomplete",
+    "3": "operational, auditable, and linked to evidence"
+  },
+  "dimensions": [
+    {
+      "id": "claim_specificity",
+      "label": "Claim specificity",
+      "card_fields": [
+        "claim_type",
+        "claim_boundaries"
+      ]
+    },
+    {
+      "id": "human_signal_limitation_clarity",
+      "label": "Human-signal limitation clarity",
+      "card_fields": [
+        "human_signal_role"
+      ]
+    },
+    {
+      "id": "verifier_stack_strength",
+      "label": "Verifier-stack strength",
+      "card_fields": [
+        "verifier_stack"
+      ]
+    },
+    {
+      "id": "verifier_independence",
+      "label": "Verifier independence",
+      "card_fields": [
+        "verifier_stack.independence_rationale",
+        "verifier_stack.correlated_failure_risks"
+      ]
+    },
+    {
+      "id": "hard_constraint_operationalization",
+      "label": "Hard-constraint operationalization",
+      "card_fields": [
+        "hard_constraints"
+      ]
+    },
+    {
+      "id": "evaluator_frontier_clarity",
+      "label": "Evaluator-frontier clarity",
+      "card_fields": [
+        "evaluator_frontier",
+        "uncertainty"
+      ]
+    },
+    {
+      "id": "absent_stakeholder_coverage",
+      "label": "Absent-stakeholder coverage",
+      "card_fields": [
+        "absent_stakeholders"
+      ]
+    },
+    {
+      "id": "monitoring_and_rollback_concreteness",
+      "label": "Monitoring and rollback concreteness",
+      "card_fields": [
+        "monitoring_and_rollback"
+      ]
+    },
+    {
+      "id": "evidence_reproducibility",
+      "label": "Evidence reproducibility",
+      "card_fields": [
+        "evidence_bundle"
+      ]
+    }
+  ]
+}

@@ -1,12 +1,40 @@
 {
-  "schema_version": "0.1",
-  "system_name": "Replace with the system or benchmark name.",
+  "schema_version": "0.2",
+  "card_id": "owa-card-example-001",
+  "card_status": "draft",
+  "system_name": "Replace with the system, benchmark, or deployment name.",
+  "system_version": "Replace with the system or benchmark version.",
   "system_description": "Replace with a short description of the system, benchmark, or deployment setting.",
+  "authors": [
+    "Replace with card author names or roles."
+  ],
+  "reviewers": [
+    "Replace with reviewer names or roles."
+  ],
+  "date_created": "YYYY-MM-DD",
+  "date_updated": "YYYY-MM-DD",
+  "risk_tier": "low | medium | high | frontier",
+  "deployment_stage": "research | benchmark | pilot | production | post-deployment",
+  "intended_use": "Replace with intended use.",
+  "out_of_scope_uses": [
+    "Replace with uses this card does not support."
+  ],
   "claim_type": {
     "description": "Replace with the ASI-relevant or beyond-human capability claim being evaluated.",
     "beyond_human_claim": false,
     "claim_scope": "Replace with the specific domain, task family, repository class, population, or deployment setting covered by the claim.",
     "supervision_boundary": "Replace with where unaided human supervision becomes weak for this claim."
+  },
+  "claim_boundaries": {
+    "supported_claims": [
+      "Replace with claims supported by the evidence."
+    ],
+    "unsupported_claims": [
+      "Replace with claims not supported by the evidence."
+    ],
+    "known_failure_modes": [
+      "Replace with known failure modes."
+    ]
   },
   "target_world_state": {
     "intended_real_world_outcome": "Replace with the real-world outcome the system is meant to improve.",
@@ -36,7 +64,13 @@
     "external_tools_or_simulators": [
       "Replace with tools, simulators, test harnesses, theorem provers, audits, or monitors."
     ],
-    "independence_rationale": "Replace with why the verifiers are not merely correlated versions of the same proxy."
+    "independence_rationale": "Replace with why the verifiers are not merely correlated versions of the same proxy.",
+    "verifier_gaming_tests": [
+      "Replace with tests for gaming the verifier stack."
+    ],
+    "correlated_failure_risks": [
+      "Replace with risks shared across verifiers."
+    ]
   },
   "hard_constraints": {
     "non_negotiable_constraints": [
@@ -51,6 +85,15 @@
     "abstention_or_escalation_conditions": [
       "Replace with conditions that trigger abstention, stronger verification, or human escalation."
     ]
+  },
+  "uncertainty": {
+    "known_unknowns": [
+      "Replace with known unknowns."
+    ],
+    "distribution_shift_conditions": [
+      "Replace with conditions outside the validated distribution."
+    ],
+    "abstention_policy": "Replace with the abstention policy."
   },
   "absent_stakeholders": {
     "affected_non_users": [
@@ -68,6 +111,23 @@
     "rollback_triggers": [
       "Replace with mechanical thresholds or events that trigger redesign, suspension, rollback, or withdrawal."
     ],
-    "revision_authority": "Replace with the role or institution authorized to pause, revise, roll back, or withdraw the system."
+    "revision_authority": "Replace with the role or institution authorized to pause, revise, roll back, or withdraw the system.",
+    "review_frequency": "Replace with the card or deployment review frequency.",
+    "incident_response_path": "Replace with the incident response path."
+  },
+  "evidence_bundle": {
+    "artifacts": [
+      "Replace with links or references to artifacts."
+    ],
+    "datasets": [
+      "Replace with datasets used for evidence."
+    ],
+    "eval_harnesses": [
+      "Replace with evaluation harnesses."
+    ],
+    "logs_or_reports": [
+      "Replace with logs, audit reports, or monitoring reports."
+    ],
+    "reproducibility_notes": "Replace with reproducibility notes."
   }
 }

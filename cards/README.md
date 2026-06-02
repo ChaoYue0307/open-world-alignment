@@ -4,6 +4,18 @@ An Open-World Evaluation Card is a reporting artifact for systems or benchmarks 
 
 Use a card when a system's outputs are consequential and unaided humans may be unable to reliably generate, rank, verify, or forecast the relevant candidates and downstream effects.
 
+## Spec, Template, Example
+
+- The canonical specification is [`../SPEC.md`](../SPEC.md).
+- The generic human-readable template is `open_world_evaluation_card.md`.
+- The machine-readable v0.2 template is `open_world_evaluation_card.yaml`.
+- Domain-specific starting points live in `templates/`.
+- Filled examples live in `examples/`.
+- Field-level writing guidance lives in `field_guidance/`.
+- Generated appendix-ready cards live in `rendered/` after running `make render-cards`.
+
+The schema is stable enough for research use, benchmark documentation, and review workflows. It remains pre-v1.0, so optional metadata fields may still evolve.
+
 ## Required Dimensions
 
 1. `claim_type`: the capability claim and where unaided supervision becomes weak.
@@ -41,17 +53,19 @@ A strong card should:
 - [Foundation model](examples/foundation_model_card.yaml): factuality, misuse, privacy, resource, and deployment monitoring checks.
 - [Scientific ML](examples/scientific_ml_card.yaml): experimental validation, replication, physical constraints, and scientific uncertainty.
 - [Forecasting](examples/forecasting_card.yaml): calibration, out-of-sample accuracy, operational thresholds, and decision monitoring.
+- [Benchmark cards](examples/benchmark_cards/): examples for SWE-bench, TruthfulQA, and HELM-style claims.
+- Domain expansion examples include theorem proving, autonomous research agents, medical triage, robotics, climate policy, and defensive cyber evaluation.
 
 ## Validation
 
 Validate a card with:
 
 ```bash
-python scripts/validate_card.py cards/examples/coding_agent_card.yaml
+python3 scripts/validate_card.py cards/examples/coding_agent_card.yaml
 ```
 
 Validate every example:
 
 ```bash
-find cards -name '*.yaml' -print0 | xargs -0 -n1 python scripts/validate_card.py
+find cards -name '*.yaml' -print0 | xargs -0 -n1 python3 scripts/validate_card.py
 ```

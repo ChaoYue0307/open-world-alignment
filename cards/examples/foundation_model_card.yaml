@@ -8,6 +8,22 @@
     "claim_scope": "General-purpose assistant behavior in supported languages, tools, policy settings, and deployment contexts.",
     "supervision_boundary": "Unaided human supervision becomes weak when outputs require specialized expertise, hidden factual checking, adversarial misuse analysis, long-horizon consequences, or cross-tool state inspection."
   },
+  "claim_boundaries": {
+    "supported_claims": [
+      "The assistant is evaluated for helpfulness, factuality, tool use, privacy, and misuse resistance under the stated settings."
+    ],
+    "unsupported_claims": [
+      "The assistant is generally truthful in all domains.",
+      "The assistant is safe for unsupported high-stakes use.",
+      "User preference alone establishes alignment."
+    ],
+    "known_failure_modes": [
+      "Plausible falsehoods",
+      "Privacy leakage",
+      "Misuse assistance",
+      "Tool-use side effects"
+    ]
+  },
   "target_world_state": {
     "intended_real_world_outcome": "Users should receive helpful, truthful, policy-compliant assistance without unacceptable misuse, privacy leakage, or hidden resource externalities.",
     "evidence_required": "Factuality tests, citation checks, tool-use success rates, privacy leakage tests, misuse evaluations, expert review, user feedback, incident reports, and resource accounting.",
@@ -55,7 +71,16 @@
       "Privacy test suite",
       "Deployment telemetry"
     ],
-    "independence_rationale": "The stack separates user preference from expert review, judge-model outputs from factual checks, offline tests from deployment telemetry, and safety gates from aggregate helpfulness scores."
+    "independence_rationale": "The stack separates user preference from expert review, judge-model outputs from factual checks, offline tests from deployment telemetry, and safety gates from aggregate helpfulness scores.",
+    "verifier_gaming_tests": [
+      "Adversarial prompts",
+      "Source perturbation tests",
+      "Tool sandbox misuse tests"
+    ],
+    "correlated_failure_risks": [
+      "Judge models inheriting preference-data blind spots",
+      "Benchmarks sharing common web artifacts"
+    ]
   },
   "hard_constraints": {
     "non_negotiable_constraints": [
@@ -79,6 +104,17 @@
       "Privacy risk is detected",
       "Verifier disagreement is high"
     ]
+  },
+  "uncertainty": {
+    "known_unknowns": [
+      "Emergent misuse after release",
+      "Long-horizon social effects"
+    ],
+    "distribution_shift_conditions": [
+      "New tool integrations",
+      "New user populations"
+    ],
+    "abstention_policy": "Abstain or escalate when evidence is missing, policy uncertainty is high, or tool state cannot be inspected."
   },
   "absent_stakeholders": {
     "affected_non_users": [
@@ -114,5 +150,23 @@
       "Policy gate invalidated by audit"
     ],
     "revision_authority": "Safety, privacy, security, and deployment owners can pause, restrict, roll back, or withdraw the model or specific capabilities."
+  },
+  "evidence_bundle": {
+    "artifacts": [
+      "Model card",
+      "Safety report"
+    ],
+    "datasets": [
+      "Evaluation datasets"
+    ],
+    "eval_harnesses": [
+      "Tool-use harness",
+      "Misuse evaluation suite"
+    ],
+    "logs_or_reports": [
+      "Red-team report",
+      "Incident report"
+    ],
+    "reproducibility_notes": "Record model version, retrieval configuration, tool permissions, and evaluation prompts."
   }
 }

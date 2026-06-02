@@ -1,0 +1,142 @@
+{
+  "schema_version": "0.2",
+  "card_id": "owa-model-release-card-template",
+  "card_status": "draft",
+  "system_name": "Model release card template",
+  "system_version": "0.0",
+  "system_description": "Template for release-stage claims about a model or model family.",
+  "authors": [
+    "Card author"
+  ],
+  "reviewers": [
+    "Release reviewer"
+  ],
+  "date_created": "YYYY-MM-DD",
+  "date_updated": "YYYY-MM-DD",
+  "risk_tier": "frontier",
+  "deployment_stage": "pilot",
+  "intended_use": "Document release claims, limits, constraints, and monitoring.",
+  "out_of_scope_uses": [
+    "Unsupported high-stakes deployment"
+  ],
+  "claim_type": {
+    "description": "State the model release claim.",
+    "beyond_human_claim": true,
+    "claim_scope": "State supported tasks, languages, tools, and policy context.",
+    "supervision_boundary": "State where users or reviewers cannot verify outputs unaided."
+  },
+  "claim_boundaries": {
+    "supported_claims": [
+      "Supported model release claim"
+    ],
+    "unsupported_claims": [
+      "Unsupported release claim"
+    ],
+    "known_failure_modes": [
+      "Misuse or factual failure"
+    ]
+  },
+  "target_world_state": {
+    "intended_real_world_outcome": "Release enables useful behavior without unacceptable safety, privacy, or resource failures.",
+    "evidence_required": "Eval reports, safety testing, red-team reports, privacy checks, and monitoring plans.",
+    "failure_definition": "Severe safety, privacy, misuse, or deployment incident."
+  },
+  "human_signal_role": {
+    "labels_used": true,
+    "preferences_used": true,
+    "benchmarks_or_judges": [
+      "Preference data",
+      "Expert review"
+    ],
+    "human_signal_can_verify": "Usefulness, clarity, and visible policy compliance.",
+    "human_signal_cannot_verify": "Hidden risks, misuse, privacy leakage, or delayed impacts.",
+    "role_in_decision": "Human feedback informs training and review, while hard gates constrain release."
+  },
+  "verifier_stack": {
+    "hard_verifiers": [
+      "Safety evals",
+      "Privacy checks",
+      "Misuse evals"
+    ],
+    "soft_verifiers": [
+      "Expert review",
+      "User feedback"
+    ],
+    "human_review_channels": [
+      "Release review",
+      "Safety review"
+    ],
+    "external_tools_or_simulators": [
+      "Eval harness",
+      "Red-team suite"
+    ],
+    "independence_rationale": "Separates user preference, expert review, and hard safety gates.",
+    "verifier_gaming_tests": [
+      "Adversarial evals"
+    ],
+    "correlated_failure_risks": [
+      "Shared benchmark conventions"
+    ]
+  },
+  "hard_constraints": {
+    "non_negotiable_constraints": [
+      "No release with unresolved severe safety finding"
+    ],
+    "enforcement_mechanism": "Release gate.",
+    "override_policy": "No automatic override."
+  },
+  "evaluator_frontier": {
+    "where_humans_become_weak_supervisors": "Specialized, adversarial, hidden, or long-horizon failures.",
+    "required_tooling_for_human_review": "Eval reports, traces, red-team reports, and policy notes.",
+    "abstention_or_escalation_conditions": [
+      "High-risk request",
+      "Verifier disagreement"
+    ]
+  },
+  "uncertainty": {
+    "known_unknowns": [
+      "Emergent misuse after release"
+    ],
+    "distribution_shift_conditions": [
+      "New user populations"
+    ],
+    "abstention_policy": "Escalate high-risk uncertainty."
+  },
+  "absent_stakeholders": {
+    "affected_non_users": [
+      "People affected by downstream model use"
+    ],
+    "future_or_downstream_stakeholders": [
+      "Integrators and future users"
+    ],
+    "representation_mechanism": "Policy review, incident channels, and staged release."
+  },
+  "monitoring_and_rollback": {
+    "deployment_signals_to_monitor": [
+      "Abuse reports",
+      "Safety incidents"
+    ],
+    "rollback_triggers": [
+      "Severe incident",
+      "Policy gate failure"
+    ],
+    "revision_authority": "Release owner.",
+    "review_frequency": "Before release and after incidents.",
+    "incident_response_path": "Restrict, patch, roll back, or withdraw capability."
+  },
+  "evidence_bundle": {
+    "artifacts": [
+      "Release report"
+    ],
+    "datasets": [
+      "Evaluation datasets"
+    ],
+    "eval_harnesses": [
+      "Model evaluation harness"
+    ],
+    "logs_or_reports": [
+      "Safety report"
+    ],
+    "reproducibility_notes": "Record model version and evaluation settings."
+  }
+}

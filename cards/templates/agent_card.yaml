@@ -1,0 +1,143 @@
+{
+  "schema_version": "0.2",
+  "card_id": "owa-agent-card-template",
+  "card_status": "draft",
+  "system_name": "Agent card template",
+  "system_version": "0.0",
+  "system_description": "Template for an agentic system that acts across tools, environments, or multi-step tasks.",
+  "authors": [
+    "Card author"
+  ],
+  "reviewers": [
+    "Reviewer role"
+  ],
+  "date_created": "YYYY-MM-DD",
+  "date_updated": "YYYY-MM-DD",
+  "risk_tier": "high",
+  "deployment_stage": "pilot",
+  "intended_use": "Document agent claims, tool boundaries, and rollback triggers.",
+  "out_of_scope_uses": [
+    "Autonomous deployment without monitoring"
+  ],
+  "claim_type": {
+    "description": "State the agent capability claim.",
+    "beyond_human_claim": true,
+    "claim_scope": "State task horizon, tool access, and environment boundary.",
+    "supervision_boundary": "State where humans cannot inspect every action or consequence unaided."
+  },
+  "claim_boundaries": {
+    "supported_claims": [
+      "Agent can complete specified tasks under specified constraints."
+    ],
+    "unsupported_claims": [
+      "General autonomous competence outside validated environments."
+    ],
+    "known_failure_modes": [
+      "Tool misuse, compounding errors, hidden state drift"
+    ]
+  },
+  "target_world_state": {
+    "intended_real_world_outcome": "Agent completes the intended task without unacceptable side effects.",
+    "evidence_required": "Task success, tool logs, sandbox traces, safety checks, and deployment monitoring.",
+    "failure_definition": "Task failure, unsafe tool use, unapproved action, or unresolved incident."
+  },
+  "human_signal_role": {
+    "labels_used": true,
+    "preferences_used": true,
+    "benchmarks_or_judges": [
+      "Task review",
+      "Trajectory review"
+    ],
+    "human_signal_can_verify": "Humans can assess intent, task relevance, and visible trajectory quality.",
+    "human_signal_cannot_verify": "Humans may not verify every hidden state, tool side effect, or delayed consequence unaided.",
+    "role_in_decision": "Human signals define the task and review escalations, but tool logs and hard gates determine safety boundaries."
+  },
+  "verifier_stack": {
+    "hard_verifiers": [
+      "Sandbox policy checks",
+      "Tool permission checks",
+      "Task success checks"
+    ],
+    "soft_verifiers": [
+      "Trajectory readability review",
+      "Human acceptance review"
+    ],
+    "human_review_channels": [
+      "Operator review",
+      "Safety reviewer"
+    ],
+    "external_tools_or_simulators": [
+      "Sandbox",
+      "Tool log monitor"
+    ],
+    "independence_rationale": "Separates task success, tool safety, and human trajectory review.",
+    "verifier_gaming_tests": [
+      "Adversarial task prompts"
+    ],
+    "correlated_failure_risks": [
+      "Shared benchmark assumptions"
+    ]
+  },
+  "hard_constraints": {
+    "non_negotiable_constraints": [
+      "No unauthorized tool action"
+    ],
+    "enforcement_mechanism": "Tool permission gates and sandbox enforcement.",
+    "override_policy": "No automated override."
+  },
+  "evaluator_frontier": {
+    "where_humans_become_weak_supervisors": "Long trajectories, hidden state, and delayed tool side effects.",
+    "required_tooling_for_human_review": "Trace viewer, tool logs, sandbox reports.",
+    "abstention_or_escalation_conditions": [
+      "Tool risk is high",
+      "Task is underspecified"
+    ]
+  },
+  "uncertainty": {
+    "known_unknowns": [
+      "Unobserved downstream effects"
+    ],
+    "distribution_shift_conditions": [
+      "New tools or environments"
+    ],
+    "abstention_policy": "Escalate when action risk or uncertainty is high."
+  },
+  "absent_stakeholders": {
+    "affected_non_users": [
+      "People affected by tool actions"
+    ],
+    "future_or_downstream_stakeholders": [
+      "Operators maintaining agent outputs"
+    ],
+    "representation_mechanism": "Tool permissions, audit logs, and incident review."
+  },
+  "monitoring_and_rollback": {
+    "deployment_signals_to_monitor": [
+      "Tool errors",
+      "Incidents",
+      "Operator interventions"
+    ],
+    "rollback_triggers": [
+      "Unauthorized action",
+      "Severe incident"
+    ],
+    "revision_authority": "Operator or safety owner.",
+    "review_frequency": "After every high-risk deployment or release.",
+    "incident_response_path": "Pause agent, preserve logs, review, and revise permissions."
+  },
+  "evidence_bundle": {
+    "artifacts": [
+      "Task traces"
+    ],
+    "datasets": [
+      "Task suite"
+    ],
+    "eval_harnesses": [
+      "Agent evaluation harness"
+    ],
+    "logs_or_reports": [
+      "Sandbox logs"
+    ],
+    "reproducibility_notes": "Record prompts, tool versions, and environment state."
+  }
+}

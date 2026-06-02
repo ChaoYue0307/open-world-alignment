@@ -8,6 +8,21 @@
     "claim_scope": "Specified repository classes, issue types, test harnesses, and deployment settings rather than general software autonomy.",
     "supervision_boundary": "Unaided human review becomes weak when the patch is large, touches many dependencies, relies on hidden tests, or has delayed security, compatibility, or maintenance effects."
   },
+  "claim_boundaries": {
+    "supported_claims": [
+      "The system can generate candidate patches for specified repository-level issues under the stated verifier stack."
+    ],
+    "unsupported_claims": [
+      "The system is production-ready without deployment monitoring.",
+      "The system is secure by benchmark success alone.",
+      "The system can autonomously maintain arbitrary repositories."
+    ],
+    "known_failure_modes": [
+      "Passing visible tests while failing hidden tests.",
+      "Introducing delayed maintenance burden.",
+      "Generating plausible but insecure patches."
+    ]
+  },
   "target_world_state": {
     "intended_real_world_outcome": "The accepted patch should solve the intended issue without introducing regressions, security vulnerabilities, compatibility breaks, or excessive maintenance burden.",
     "evidence_required": "Compilation, existing tests, hidden tests, reproducer scripts, property-based tests, static analysis, security checks, maintainer review, and deployment telemetry.",
@@ -55,7 +70,16 @@
       "Performance regression tests",
       "Deployment monitoring"
     ],
-    "independence_rationale": "The stack distinguishes public tests from hidden tests, static analysis from dynamic tests, human review from model critiques, and offline benchmarks from deployment telemetry."
+    "independence_rationale": "The stack distinguishes public tests from hidden tests, static analysis from dynamic tests, human review from model critiques, and offline benchmarks from deployment telemetry.",
+    "verifier_gaming_tests": [
+      "Held-out issues",
+      "Mutation tests",
+      "Adversarial reproducer scripts"
+    ],
+    "correlated_failure_risks": [
+      "Shared benchmark artifacts",
+      "Test suites that omit security or maintainability failures"
+    ]
   },
   "hard_constraints": {
     "non_negotiable_constraints": [
@@ -81,6 +105,17 @@
       "Verifier disagreement is high",
       "Human reviewers disagree about intent or risk"
     ]
+  },
+  "uncertainty": {
+    "known_unknowns": [
+      "Delayed maintenance cost",
+      "Production-specific regressions"
+    ],
+    "distribution_shift_conditions": [
+      "New dependency ecosystem",
+      "Repository class outside the benchmark"
+    ],
+    "abstention_policy": "Escalate or abstain when tests conflict, coverage is weak, or the patch touches sensitive code."
   },
   "absent_stakeholders": {
     "affected_non_users": [
@@ -115,5 +150,22 @@
       "Maintainer or security owner determines that verifier evidence was invalid"
     ],
     "revision_authority": "Maintainers, release managers, and security owners can pause, revise, roll back, or withdraw the patch."
+  },
+  "evidence_bundle": {
+    "artifacts": [
+      "Patch diff",
+      "Review notes"
+    ],
+    "datasets": [
+      "Repository issue set"
+    ],
+    "eval_harnesses": [
+      "Issue-resolution harness"
+    ],
+    "logs_or_reports": [
+      "Test logs",
+      "Security scan report"
+    ],
+    "reproducibility_notes": "Record repository commit, dependency lockfiles, test commands, and tool versions."
   }
 }

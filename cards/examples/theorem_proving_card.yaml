@@ -1,0 +1,152 @@
+{
+  "schema_version": "0.2",
+  "card_id": "owa-example-theorem-proving",
+  "card_status": "draft",
+  "system_name": "Theorem-proving assistant",
+  "system_version": "example",
+  "system_description": "A system that proposes formal proof steps and complete proofs for theorem-proving environments.",
+  "authors": [
+    "Open-World Alignment Toolkit"
+  ],
+  "reviewers": [
+    "Formal methods reviewer"
+  ],
+  "date_created": "2026-06-02",
+  "date_updated": "2026-06-02",
+  "risk_tier": "medium",
+  "deployment_stage": "research",
+  "intended_use": "Evaluate proof generation under formal verification.",
+  "out_of_scope_uses": [
+    "Mathematical truth claims without proof checking"
+  ],
+  "claim_type": {
+    "description": "The system is claimed to generate proof candidates that can be checked in a specified theorem-proving environment.",
+    "beyond_human_claim": true,
+    "claim_scope": "Specified theorem prover, libraries, theorem families, and proof-checking settings.",
+    "supervision_boundary": "Humans become weak supervisors when proof search is long, tactics are unfamiliar, or correctness depends on formal checker state."
+  },
+  "claim_boundaries": {
+    "supported_claims": [
+      "Proof candidates are valid when accepted by the specified proof checker."
+    ],
+    "unsupported_claims": [
+      "The system proves arbitrary mathematical statements.",
+      "Natural-language plausibility establishes proof correctness."
+    ],
+    "known_failure_modes": [
+      "Invalid proof sketch",
+      "Library version mismatch",
+      "Overfitting to theorem corpus"
+    ]
+  },
+  "target_world_state": {
+    "intended_real_world_outcome": "Generated proofs should pass formal checking and help users inspect or extend verified mathematics.",
+    "evidence_required": "Proof-checker acceptance, library version records, held-out theorem tests, and expert review.",
+    "failure_definition": "A proof is invalid, relies on unsupported assumptions, or fails under the stated theorem-prover environment."
+  },
+  "human_signal_role": {
+    "labels_used": true,
+    "preferences_used": false,
+    "benchmarks_or_judges": [
+      "Expert proof review",
+      "Formal benchmark tasks"
+    ],
+    "human_signal_can_verify": "Humans can assess theorem relevance, readability, and proof strategy.",
+    "human_signal_cannot_verify": "Unaided humans may not verify long formal proof states or hidden dependency assumptions.",
+    "role_in_decision": "Human review interprets and prioritizes proofs; formal checking is the hard verifier."
+  },
+  "verifier_stack": {
+    "hard_verifiers": [
+      "Theorem prover acceptance",
+      "Library version check",
+      "Held-out theorem evaluation"
+    ],
+    "soft_verifiers": [
+      "Mathematician review",
+      "Proof readability review"
+    ],
+    "human_review_channels": [
+      "Formal methods reviewer"
+    ],
+    "external_tools_or_simulators": [
+      "Theorem prover",
+      "Proof replay harness"
+    ],
+    "independence_rationale": "Separates formal proof checking from human plausibility and benchmark task selection.",
+    "verifier_gaming_tests": [
+      "Held-out theorem families",
+      "Library perturbation tests"
+    ],
+    "correlated_failure_risks": [
+      "Training data overlap with benchmark proofs",
+      "Library-specific shortcuts"
+    ]
+  },
+  "hard_constraints": {
+    "non_negotiable_constraints": [
+      "No correctness claim without proof-checker acceptance",
+      "No hidden assumptions outside the stated environment"
+    ],
+    "enforcement_mechanism": "Block correctness claims when formal checking fails.",
+    "override_policy": "No override for failed formal proof checks."
+  },
+  "evaluator_frontier": {
+    "where_humans_become_weak_supervisors": "Long proof traces, tactic state, and dependency interactions.",
+    "required_tooling_for_human_review": "Proof replay, theorem-prover logs, dependency graph, and library version record.",
+    "abstention_or_escalation_conditions": [
+      "Proof checker fails",
+      "Dependencies are unclear",
+      "The theorem is outside the validated library"
+    ]
+  },
+  "uncertainty": {
+    "known_unknowns": [
+      "Generalization to new theorem families"
+    ],
+    "distribution_shift_conditions": [
+      "New prover version",
+      "New formal library"
+    ],
+    "abstention_policy": "Do not claim correctness when proof replay fails or environment differs."
+  },
+  "absent_stakeholders": {
+    "affected_non_users": [
+      "Researchers relying on generated proofs"
+    ],
+    "future_or_downstream_stakeholders": [
+      "Library maintainers",
+      "Users building on proofs"
+    ],
+    "representation_mechanism": "Proof replay artifacts, dependency records, and expert review."
+  },
+  "monitoring_and_rollback": {
+    "deployment_signals_to_monitor": [
+      "Proof replay failures",
+      "Library incompatibilities",
+      "Reported invalid assumptions"
+    ],
+    "rollback_triggers": [
+      "Proof checker rejection",
+      "Dependency invalidation",
+      "Benchmark contamination"
+    ],
+    "revision_authority": "Formal methods maintainer or benchmark owner.",
+    "review_frequency": "At prover or library updates.",
+    "incident_response_path": "Flag proof, preserve logs, update card, and withdraw unsupported claim."
+  },
+  "evidence_bundle": {
+    "artifacts": [
+      "Proof file"
+    ],
+    "datasets": [
+      "Theorem benchmark"
+    ],
+    "eval_harnesses": [
+      "Proof replay harness"
+    ],
+    "logs_or_reports": [
+      "Proof-checker log"
+    ],
+    "reproducibility_notes": "Record theorem prover version, library commit, and proof replay command."
+  }
+}

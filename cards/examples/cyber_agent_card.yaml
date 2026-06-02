@@ -1,0 +1,167 @@
+{
+  "schema_version": "0.2",
+  "card_id": "owa-example-cyber-agent",
+  "card_status": "draft",
+  "system_name": "Cybersecurity evaluation agent",
+  "system_version": "example",
+  "system_description": "A system that assists defensive cybersecurity evaluation in authorized environments.",
+  "authors": [
+    "Open-World Alignment Toolkit"
+  ],
+  "reviewers": [
+    "Security review owner"
+  ],
+  "date_created": "2026-06-02",
+  "date_updated": "2026-06-02",
+  "risk_tier": "high",
+  "deployment_stage": "pilot",
+  "intended_use": "Support defensive evaluation, triage, and reporting in authorized systems.",
+  "out_of_scope_uses": [
+    "Unauthorized access",
+    "Operational attack guidance",
+    "Autonomous exploitation"
+  ],
+  "claim_type": {
+    "description": "The system is claimed to assist defensive security evaluation under authorization, logging, and human review.",
+    "beyond_human_claim": true,
+    "claim_scope": "Authorized assets, defensive tasks, approved tools, and monitored environments.",
+    "supervision_boundary": "Humans become weak supervisors when tool actions, logs, and security implications are complex or time-sensitive."
+  },
+  "claim_boundaries": {
+    "supported_claims": [
+      "Agent can assist authorized defensive evaluation under human review."
+    ],
+    "unsupported_claims": [
+      "Agent may operate on unauthorized targets.",
+      "Agent may provide operational attack instructions.",
+      "Agent is safe without logging and review."
+    ],
+    "known_failure_modes": [
+      "Unauthorized scope expansion",
+      "Unsafe tool recommendation",
+      "False positive or false negative triage",
+      "Sensitive data exposure"
+    ]
+  },
+  "target_world_state": {
+    "intended_real_world_outcome": "Defensive evaluation should improve security posture without unauthorized action, sensitive data leakage, or harmful operational guidance.",
+    "evidence_required": "Authorization records, tool logs, human review, policy checks, false-positive analysis, and incident monitoring.",
+    "failure_definition": "Unauthorized target interaction, sensitive data leakage, unsafe recommendation, or unreviewed high-risk action."
+  },
+  "human_signal_role": {
+    "labels_used": true,
+    "preferences_used": false,
+    "benchmarks_or_judges": [
+      "Security analyst review",
+      "Defensive benchmark",
+      "Policy review"
+    ],
+    "human_signal_can_verify": "Analysts can assess scope, relevance, and defensive usefulness.",
+    "human_signal_cannot_verify": "Unaided analysts may not verify every tool side effect, authorization boundary, or sensitive data exposure.",
+    "role_in_decision": "Human review authorizes scope and interprets findings; policy gates and logs constrain actions."
+  },
+  "verifier_stack": {
+    "hard_verifiers": [
+      "Authorization scope check",
+      "Tool permission gate",
+      "Sensitive data handling check",
+      "Audit log completeness check"
+    ],
+    "soft_verifiers": [
+      "Security analyst review",
+      "Report quality review"
+    ],
+    "human_review_channels": [
+      "Security owner review",
+      "Incident response reviewer"
+    ],
+    "external_tools_or_simulators": [
+      "Authorized lab environment",
+      "Policy checker",
+      "Audit log monitor"
+    ],
+    "independence_rationale": "Separates authorization gates, tool logs, analyst review, and policy checks.",
+    "verifier_gaming_tests": [
+      "Scope-boundary tests",
+      "Sensitive-data handling tests"
+    ],
+    "correlated_failure_risks": [
+      "Shared assumptions about authorization scope",
+      "Incomplete logging coverage"
+    ]
+  },
+  "hard_constraints": {
+    "non_negotiable_constraints": [
+      "No unauthorized target interaction",
+      "No operational attack guidance",
+      "No sensitive data leakage",
+      "No high-risk tool action without approval"
+    ],
+    "enforcement_mechanism": "Authorization gates, policy filters, tool permissions, and audit logs.",
+    "override_policy": "No automated override for authorization or sensitive-data constraints."
+  },
+  "evaluator_frontier": {
+    "where_humans_become_weak_supervisors": "Complex tool chains, scope boundaries, hidden logs, and fast-changing risk context.",
+    "required_tooling_for_human_review": "Authorization record, tool logs, policy decisions, and audit trail.",
+    "abstention_or_escalation_conditions": [
+      "Authorization unclear",
+      "Sensitive data detected",
+      "Tool action is high risk",
+      "Scope boundary is ambiguous"
+    ]
+  },
+  "uncertainty": {
+    "known_unknowns": [
+      "Unobserved tool side effects",
+      "Incomplete asset inventory"
+    ],
+    "distribution_shift_conditions": [
+      "New environment",
+      "Changed authorization scope"
+    ],
+    "abstention_policy": "Refuse or escalate when authorization, scope, or sensitive-data status is uncertain."
+  },
+  "absent_stakeholders": {
+    "affected_non_users": [
+      "Users of evaluated systems",
+      "Data subjects"
+    ],
+    "future_or_downstream_stakeholders": [
+      "Security operations teams",
+      "System owners"
+    ],
+    "representation_mechanism": "Authorization records, data-handling policy, incident review, and audit logging."
+  },
+  "monitoring_and_rollback": {
+    "deployment_signals_to_monitor": [
+      "Authorization failures",
+      "Sensitive data events",
+      "Policy violations",
+      "Analyst escalations"
+    ],
+    "rollback_triggers": [
+      "Unauthorized interaction",
+      "Sensitive data leakage",
+      "High-risk unapproved action"
+    ],
+    "revision_authority": "Security owner or incident response lead.",
+    "review_frequency": "After each high-risk evaluation and policy update.",
+    "incident_response_path": "Stop agent, preserve logs, notify security owner, and revise permissions or withdraw capability."
+  },
+  "evidence_bundle": {
+    "artifacts": [
+      "Security evaluation report"
+    ],
+    "datasets": [
+      "Authorized asset inventory"
+    ],
+    "eval_harnesses": [
+      "Authorized lab harness"
+    ],
+    "logs_or_reports": [
+      "Audit logs",
+      "Policy decision logs"
+    ],
+    "reproducibility_notes": "Record authorization scope, tool versions, policy configuration, and reviewed logs."
+  }
+}

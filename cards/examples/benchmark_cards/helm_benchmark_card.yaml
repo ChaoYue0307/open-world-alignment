@@ -1,0 +1,170 @@
+{
+  "schema_version": "0.2",
+  "card_id": "owa-benchmark-helm-example",
+  "card_status": "draft",
+  "system_name": "Holistic language model evaluation benchmark",
+  "system_version": "example",
+  "system_description": "An illustrative benchmark card for multi-scenario, multi-metric language-model evaluation.",
+  "authors": [
+    "Open-World Alignment Toolkit"
+  ],
+  "reviewers": [
+    "Benchmark reviewer"
+  ],
+  "date_created": "2026-06-02",
+  "date_updated": "2026-06-02",
+  "risk_tier": "medium",
+  "deployment_stage": "benchmark",
+  "intended_use": "Document what holistic benchmark results support and where aggregation remains limited.",
+  "out_of_scope_uses": [
+    "Single-score model selection",
+    "Deployment certification",
+    "Claims about all real-world use"
+  ],
+  "benchmark_profile": {
+    "benchmark_name": "Holistic evaluation benchmark",
+    "benchmark_version": "example",
+    "target_construct": "Performance across multiple language-model scenarios and metrics",
+    "measurement_model": "Scenario-specific metrics are reported separately or through transparent aggregation.",
+    "claim_supported": "Evidence about model behavior across covered scenarios and metrics.",
+    "claim_not_supported": "Evidence that a single aggregate score captures all relevant system quality.",
+    "tasks_outside_scope": [
+      "Uncovered deployment contexts",
+      "Long-horizon agent behavior",
+      "Post-deployment externalities"
+    ],
+    "leaderboard_monitoring": [
+      "Metric gaming",
+      "Scenario saturation",
+      "Aggregation misuse"
+    ],
+    "update_policy": "Review scenario coverage and metric validity periodically."
+  },
+  "claim_type": {
+    "description": "The benchmark supports claims about covered scenarios and metrics, not universal model quality.",
+    "beyond_human_claim": false,
+    "claim_scope": "Scenarios, metrics, and model classes included in the benchmark.",
+    "supervision_boundary": "Human supervision becomes weak when aggregate scores hide conflicts across quality dimensions."
+  },
+  "claim_boundaries": {
+    "supported_claims": [
+      "Model behavior on reported scenarios and metrics."
+    ],
+    "unsupported_claims": [
+      "Single-score superiority across all contexts",
+      "Deployment safety"
+    ],
+    "known_failure_modes": [
+      "Metric aggregation hides hard constraints",
+      "Scenario coverage gaps",
+      "Leaderboard overclaiming"
+    ]
+  },
+  "target_world_state": {
+    "intended_real_world_outcome": "Evaluation should make multi-dimensional model behavior transparent.",
+    "evidence_required": "Scenario documentation, metric definitions, raw results, aggregation notes, and coverage limits.",
+    "failure_definition": "Users infer unsupported global quality or ignore hard constraints hidden by aggregate scores."
+  },
+  "human_signal_role": {
+    "labels_used": true,
+    "preferences_used": false,
+    "benchmarks_or_judges": [
+      "Scenario labels",
+      "Metric definitions",
+      "Expert benchmark review"
+    ],
+    "human_signal_can_verify": "Humans can define scenarios, review metrics, and interpret tradeoffs.",
+    "human_signal_cannot_verify": "Humans may not infer deployment safety or all downstream impacts from benchmark coverage.",
+    "role_in_decision": "Human design choices define the benchmark, while metric reporting constrains the supported claim."
+  },
+  "verifier_stack": {
+    "hard_verifiers": [
+      "Scenario-specific metric computation",
+      "Reproducibility checks",
+      "Coverage documentation"
+    ],
+    "soft_verifiers": [
+      "Expert scenario review",
+      "Metric interpretation"
+    ],
+    "human_review_channels": [
+      "Benchmark maintainer review"
+    ],
+    "external_tools_or_simulators": [
+      "Evaluation harness"
+    ],
+    "independence_rationale": "Separates scenario design, metric computation, and interpretive review.",
+    "verifier_gaming_tests": [
+      "Scenario perturbations",
+      "Metric sensitivity checks"
+    ],
+    "correlated_failure_risks": [
+      "Shared dataset artifacts",
+      "Common model-family blind spots"
+    ]
+  },
+  "hard_constraints": {
+    "non_negotiable_constraints": [
+      "No aggregate score may override separately reported safety or constraint metrics"
+    ],
+    "enforcement_mechanism": "Report per-metric results and limitations with aggregate claims.",
+    "override_policy": "No override for claim-boundary reporting."
+  },
+  "evaluator_frontier": {
+    "where_humans_become_weak_supervisors": "When many metrics conflict or deployment context differs from benchmark scenarios.",
+    "required_tooling_for_human_review": "Raw result tables, metric definitions, scenario documentation, and coverage notes.",
+    "abstention_or_escalation_conditions": [
+      "Metric conflict",
+      "Uncovered deployment context",
+      "Hard constraint failure"
+    ]
+  },
+  "uncertainty": {
+    "known_unknowns": [
+      "Generalization to uncovered tasks"
+    ],
+    "distribution_shift_conditions": [
+      "New domains or model capabilities"
+    ],
+    "abstention_policy": "Avoid single-score conclusions when metrics conflict."
+  },
+  "absent_stakeholders": {
+    "affected_non_users": [
+      "People affected by downstream model deployment"
+    ],
+    "future_or_downstream_stakeholders": [
+      "Benchmark users relying on model rankings"
+    ],
+    "representation_mechanism": "Scenario expansion, limitation reporting, and issue-based feedback."
+  },
+  "monitoring_and_rollback": {
+    "deployment_signals_to_monitor": [
+      "Scenario saturation",
+      "Metric gaming",
+      "External validity failures"
+    ],
+    "rollback_triggers": [
+      "Invalid metric computation",
+      "Construct validity failure",
+      "Unsupported aggregate claim"
+    ],
+    "revision_authority": "Benchmark maintainers.",
+    "review_frequency": "At scenario updates and major leaderboard shifts.",
+    "incident_response_path": "Revise benchmark documentation and flag affected claims."
+  },
+  "evidence_bundle": {
+    "artifacts": [
+      "Benchmark report"
+    ],
+    "datasets": [
+      "Scenario datasets"
+    ],
+    "eval_harnesses": [
+      "Evaluation harness"
+    ],
+    "logs_or_reports": [
+      "Metric report"
+    ],
+    "reproducibility_notes": "Record scenario set, metric version, and model configuration."
+  }
+}

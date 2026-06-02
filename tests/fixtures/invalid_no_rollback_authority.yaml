@@ -1,0 +1,83 @@
+{
+  "schema_version": "0.2",
+  "system_name": "No rollback authority card",
+  "claim_type": {
+    "description": "The system is claimed to support a scoped task under defined verifier conditions.",
+    "beyond_human_claim": true,
+    "claim_scope": "Scoped task.",
+    "supervision_boundary": "Humans cannot verify some outputs unaided."
+  },
+  "claim_boundaries": {
+    "supported_claims": [
+      "A scoped claim."
+    ],
+    "unsupported_claims": [
+      "A broad unsupported claim."
+    ],
+    "known_failure_modes": [
+      "Verifier omission."
+    ]
+  },
+  "target_world_state": {
+    "intended_real_world_outcome": "Improve the target state.",
+    "evidence_required": "Concrete evidence.",
+    "failure_definition": "Concrete failure."
+  },
+  "human_signal_role": {
+    "labels_used": true,
+    "preferences_used": false,
+    "benchmarks_or_judges": [
+      "Human review"
+    ],
+    "human_signal_can_verify": "Visible task fit.",
+    "human_signal_cannot_verify": "Hidden downstream effects.",
+    "role_in_decision": "Interpretation and escalation."
+  },
+  "verifier_stack": {
+    "hard_verifiers": [
+      "Hard verifier"
+    ],
+    "soft_verifiers": [
+      "Soft verifier"
+    ],
+    "human_review_channels": [
+      "Reviewer"
+    ],
+    "external_tools_or_simulators": [
+      "Tool"
+    ],
+    "independence_rationale": "Different evidence channels are used."
+  },
+  "hard_constraints": {
+    "non_negotiable_constraints": [
+      "Hard constraint"
+    ],
+    "enforcement_mechanism": "Block release when gate fails.",
+    "override_policy": "No override."
+  },
+  "evaluator_frontier": {
+    "where_humans_become_weak_supervisors": "Hard cases.",
+    "required_tooling_for_human_review": "Tools.",
+    "abstention_or_escalation_conditions": [
+      "Uncertainty"
+    ]
+  },
+  "absent_stakeholders": {
+    "affected_non_users": [
+      "Affected people"
+    ],
+    "future_or_downstream_stakeholders": [
+      "Future users"
+    ],
+    "representation_mechanism": "Review."
+  },
+  "monitoring_and_rollback": {
+    "deployment_signals_to_monitor": [
+      "Incidents"
+    ],
+    "rollback_triggers": [
+      "Severe incident"
+    ],
+    "revision_authority": "owner"
+  }
+}

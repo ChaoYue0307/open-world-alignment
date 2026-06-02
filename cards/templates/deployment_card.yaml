@@ -1,0 +1,140 @@
+{
+  "schema_version": "0.2",
+  "card_id": "owa-deployment-card-template",
+  "card_status": "draft",
+  "system_name": "Deployment card template",
+  "system_version": "0.0",
+  "system_description": "Template for deployment-stage monitoring, rollback, and revision evidence.",
+  "authors": [
+    "Card author"
+  ],
+  "reviewers": [
+    "Deployment reviewer"
+  ],
+  "date_created": "YYYY-MM-DD",
+  "date_updated": "YYYY-MM-DD",
+  "risk_tier": "high",
+  "deployment_stage": "production",
+  "intended_use": "Document post-deployment evidence and rollback authority.",
+  "out_of_scope_uses": [
+    "Pre-deployment benchmark-only claim"
+  ],
+  "claim_type": {
+    "description": "State the deployment claim.",
+    "beyond_human_claim": true,
+    "claim_scope": "State deployment population, environment, and use boundary.",
+    "supervision_boundary": "State what cannot be observed at approval time."
+  },
+  "claim_boundaries": {
+    "supported_claims": [
+      "Supported deployment claim"
+    ],
+    "unsupported_claims": [
+      "Unsupported deployment claim"
+    ],
+    "known_failure_modes": [
+      "Deployment drift"
+    ]
+  },
+  "target_world_state": {
+    "intended_real_world_outcome": "Deployment improves the intended outcome without unacceptable externalities.",
+    "evidence_required": "Live monitoring, audits, incidents, appeals, and performance reports.",
+    "failure_definition": "Material incident, drift, violation, or rollback-trigger event."
+  },
+  "human_signal_role": {
+    "labels_used": true,
+    "preferences_used": true,
+    "benchmarks_or_judges": [
+      "User feedback",
+      "Operator review"
+    ],
+    "human_signal_can_verify": "Humans can report visible failures and contextual fit.",
+    "human_signal_cannot_verify": "Humans may not detect delayed, aggregate, or absent-stakeholder harms.",
+    "role_in_decision": "Human feedback is a monitoring channel, not the sole deployment gate."
+  },
+  "verifier_stack": {
+    "hard_verifiers": [
+      "Incident thresholds",
+      "Policy compliance checks"
+    ],
+    "soft_verifiers": [
+      "Operator review"
+    ],
+    "human_review_channels": [
+      "Deployment owner",
+      "Risk owner"
+    ],
+    "external_tools_or_simulators": [
+      "Monitoring dashboard"
+    ],
+    "independence_rationale": "Separates live telemetry, human reports, and compliance gates.",
+    "verifier_gaming_tests": [
+      "Monitoring blind-spot review"
+    ],
+    "correlated_failure_risks": [
+      "Telemetry only covers observed users"
+    ]
+  },
+  "hard_constraints": {
+    "non_negotiable_constraints": [
+      "No deployment after hard gate failure"
+    ],
+    "enforcement_mechanism": "Automated alerts and owner approval gates.",
+    "override_policy": "Overrides require documented risk owner approval."
+  },
+  "evaluator_frontier": {
+    "where_humans_become_weak_supervisors": "Delayed harms, aggregate effects, and low-visibility stakeholder impact.",
+    "required_tooling_for_human_review": "Dashboards, incident logs, appeals, and audit reports.",
+    "abstention_or_escalation_conditions": [
+      "Metric drift",
+      "Severe incident"
+    ]
+  },
+  "uncertainty": {
+    "known_unknowns": [
+      "Unobserved affected non-users"
+    ],
+    "distribution_shift_conditions": [
+      "New deployment context"
+    ],
+    "abstention_policy": "Pause or restrict when monitoring confidence is low."
+  },
+  "absent_stakeholders": {
+    "affected_non_users": [
+      "People affected by deployment outcomes"
+    ],
+    "future_or_downstream_stakeholders": [
+      "Future users and operators"
+    ],
+    "representation_mechanism": "Appeals, audits, and stakeholder review."
+  },
+  "monitoring_and_rollback": {
+    "deployment_signals_to_monitor": [
+      "Incidents",
+      "Drift",
+      "Appeals"
+    ],
+    "rollback_triggers": [
+      "Severe incident",
+      "Hard constraint violation"
+    ],
+    "revision_authority": "Deployment owner or risk owner.",
+    "review_frequency": "Scheduled and incident-triggered.",
+    "incident_response_path": "Pause, triage, notify owner, roll back or revise."
+  },
+  "evidence_bundle": {
+    "artifacts": [
+      "Deployment review"
+    ],
+    "datasets": [
+      "Monitoring dataset"
+    ],
+    "eval_harnesses": [
+      "Production checks"
+    ],
+    "logs_or_reports": [
+      "Incident report"
+    ],
+    "reproducibility_notes": "Preserve versioned logs and deployment context."
+  }
+}

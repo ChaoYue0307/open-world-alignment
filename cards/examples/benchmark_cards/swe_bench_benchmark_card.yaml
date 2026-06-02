@@ -1,0 +1,178 @@
+{
+  "schema_version": "0.2",
+  "card_id": "owa-benchmark-swe-bench-example",
+  "card_status": "draft",
+  "system_name": "SWE-bench-style repository issue benchmark",
+  "system_version": "example",
+  "system_description": "An illustrative benchmark card for repository-level issue resolution with executable evaluation.",
+  "authors": [
+    "Open-World Alignment Toolkit"
+  ],
+  "reviewers": [
+    "Benchmark maintainer"
+  ],
+  "date_created": "2026-06-02",
+  "date_updated": "2026-06-02",
+  "risk_tier": "medium",
+  "deployment_stage": "benchmark",
+  "intended_use": "Document what repository-level issue-resolution scores can and cannot establish.",
+  "out_of_scope_uses": [
+    "Production readiness",
+    "General software autonomy",
+    "Security certification"
+  ],
+  "benchmark_profile": {
+    "benchmark_name": "SWE-bench-style benchmark",
+    "benchmark_version": "example",
+    "target_construct": "Repository-level issue resolution under benchmark conditions",
+    "measurement_model": "Candidate patches are evaluated against issue-level tests and harness outcomes.",
+    "claim_supported": "Evidence of resolving benchmarked repository issues.",
+    "claim_not_supported": "Evidence of production safety, maintainability, absence of delayed regressions, or general autonomy.",
+    "tasks_outside_scope": [
+      "Security-sensitive production changes",
+      "Long-horizon maintenance",
+      "Undocumented repository behavior"
+    ],
+    "leaderboard_monitoring": [
+      "Saturation",
+      "Contamination reports",
+      "Hidden-test overfitting"
+    ],
+    "update_policy": "Review benchmark validity when leaderboard saturation or contamination is reported."
+  },
+  "claim_type": {
+    "description": "The benchmark supports claims about repository-level issue resolution under its task distribution and harness constraints.",
+    "beyond_human_claim": true,
+    "claim_scope": "Repository issues represented in the benchmark, with available harnesses and test outcomes.",
+    "supervision_boundary": "Human review becomes weak when patches interact with hidden tests, dependency behavior, security risk, or downstream maintenance."
+  },
+  "claim_boundaries": {
+    "supported_claims": [
+      "Model can produce patches that pass benchmark evaluation for included issues."
+    ],
+    "unsupported_claims": [
+      "Model is production-ready",
+      "Model is secure",
+      "Model can autonomously maintain arbitrary repositories"
+    ],
+    "known_failure_modes": [
+      "Benchmark gaming",
+      "Hidden-test overfitting",
+      "Passing tests while harming maintainability"
+    ]
+  },
+  "target_world_state": {
+    "intended_real_world_outcome": "Benchmark evidence should track whether candidate patches resolve repository issues under controlled conditions.",
+    "evidence_required": "Issue reproduction, test harness results, hidden tests, contamination checks, and error analysis.",
+    "failure_definition": "Benchmark scores are overclaimed or stop tracking repository-level issue resolution."
+  },
+  "human_signal_role": {
+    "labels_used": true,
+    "preferences_used": false,
+    "benchmarks_or_judges": [
+      "Issue descriptions",
+      "Maintainer-authored tests",
+      "Benchmark harness"
+    ],
+    "human_signal_can_verify": "Humans can assess issue relevance, patch readability, and whether benchmark tasks are meaningful.",
+    "human_signal_cannot_verify": "Humans may not verify hidden regressions, security implications, contamination, or long-term maintenance costs unaided.",
+    "role_in_decision": "Human-authored issues and tests define the benchmark, while executable checks provide task-facing evidence."
+  },
+  "verifier_stack": {
+    "hard_verifiers": [
+      "Executable issue-resolution harness",
+      "Hidden tests",
+      "Regression tests",
+      "Contamination checks"
+    ],
+    "soft_verifiers": [
+      "Maintainer plausibility review",
+      "Error taxonomy review"
+    ],
+    "human_review_channels": [
+      "Benchmark maintainer review"
+    ],
+    "external_tools_or_simulators": [
+      "Containerized evaluation harness"
+    ],
+    "independence_rationale": "Separates benchmark task construction, executable tests, hidden tests, and human error analysis.",
+    "verifier_gaming_tests": [
+      "Held-out issues",
+      "Mutation tests",
+      "Contamination audits"
+    ],
+    "correlated_failure_risks": [
+      "Shared repository artifacts",
+      "Test-suite blind spots"
+    ]
+  },
+  "hard_constraints": {
+    "non_negotiable_constraints": [
+      "No claim beyond benchmark scope",
+      "No leaderboard claim without benchmark version",
+      "No production-safety claim from benchmark score alone"
+    ],
+    "enforcement_mechanism": "Require benchmark cards and unsupported claims in result reporting.",
+    "override_policy": "No override for unsupported claims."
+  },
+  "evaluator_frontier": {
+    "where_humans_become_weak_supervisors": "Large patches, hidden tests, security-sensitive code, dependency interactions, and delayed regressions.",
+    "required_tooling_for_human_review": "Patch diff, test results, issue reproducer, harness logs, and contamination report.",
+    "abstention_or_escalation_conditions": [
+      "Harness failure is ambiguous",
+      "Issue is under-specified",
+      "Patch touches security-sensitive code"
+    ]
+  },
+  "uncertainty": {
+    "known_unknowns": [
+      "Production reliability",
+      "Maintainer burden"
+    ],
+    "distribution_shift_conditions": [
+      "New repository types",
+      "New dependency ecosystems"
+    ],
+    "abstention_policy": "Do not infer deployment readiness from benchmark score alone."
+  },
+  "absent_stakeholders": {
+    "affected_non_users": [
+      "Downstream users of patched repositories"
+    ],
+    "future_or_downstream_stakeholders": [
+      "Future maintainers",
+      "Security teams"
+    ],
+    "representation_mechanism": "Report unsupported claims, escaped defects, and benchmark validity reviews."
+  },
+  "monitoring_and_rollback": {
+    "deployment_signals_to_monitor": [
+      "Leaderboard saturation",
+      "Contamination reports",
+      "Escaped benchmark flaws"
+    ],
+    "rollback_triggers": [
+      "Confirmed contamination",
+      "Invalid harness behavior",
+      "Construct validity failure"
+    ],
+    "revision_authority": "Benchmark maintainers.",
+    "review_frequency": "At benchmark updates and after major leaderboard shifts.",
+    "incident_response_path": "Flag affected results, update benchmark card, and revise evaluation protocol."
+  },
+  "evidence_bundle": {
+    "artifacts": [
+      "Benchmark card"
+    ],
+    "datasets": [
+      "Issue dataset"
+    ],
+    "eval_harnesses": [
+      "Repository evaluation harness"
+    ],
+    "logs_or_reports": [
+      "Harness logs"
+    ],
+    "reproducibility_notes": "Record benchmark version, repository snapshot, and evaluation harness version."
+  }
+}

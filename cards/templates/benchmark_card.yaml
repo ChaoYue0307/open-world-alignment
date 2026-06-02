@@ -1,0 +1,156 @@
+{
+  "schema_version": "0.2",
+  "card_id": "owa-benchmark-card-template",
+  "card_status": "draft",
+  "system_name": "Benchmark card template",
+  "system_version": "0.0",
+  "system_description": "Template for documenting what a benchmark can and cannot support.",
+  "authors": [
+    "Card author"
+  ],
+  "reviewers": [
+    "Reviewer role"
+  ],
+  "date_created": "YYYY-MM-DD",
+  "date_updated": "YYYY-MM-DD",
+  "risk_tier": "medium",
+  "deployment_stage": "benchmark",
+  "intended_use": "Disclose the claim supported by a benchmark.",
+  "out_of_scope_uses": [
+    "Broad capability claims outside benchmark scope"
+  ],
+  "benchmark_profile": {
+    "benchmark_name": "Benchmark name",
+    "benchmark_version": "Benchmark version",
+    "target_construct": "Construct being measured",
+    "measurement_model": "How benchmark tasks measure the construct",
+    "claim_supported": "Claim supported by the benchmark",
+    "claim_not_supported": "Claim not supported by the benchmark",
+    "tasks_outside_scope": [
+      "Task outside scope"
+    ],
+    "leaderboard_monitoring": [
+      "Saturation signal"
+    ],
+    "update_policy": "Benchmark update policy"
+  },
+  "claim_type": {
+    "description": "State the benchmark-supported claim.",
+    "beyond_human_claim": false,
+    "claim_scope": "State the benchmark task distribution and evaluation setting.",
+    "supervision_boundary": "State where benchmark evidence becomes weak."
+  },
+  "claim_boundaries": {
+    "supported_claims": [
+      "Benchmark-supported claim"
+    ],
+    "unsupported_claims": [
+      "Unsupported benchmark claim"
+    ],
+    "known_failure_modes": [
+      "Benchmark gaming"
+    ]
+  },
+  "target_world_state": {
+    "intended_real_world_outcome": "Benchmark scores should track the target construct under stated conditions.",
+    "evidence_required": "Task design, scorer validity, contamination checks, robustness checks, and external validation.",
+    "failure_definition": "Benchmark score no longer tracks the target construct or is overclaimed."
+  },
+  "human_signal_role": {
+    "labels_used": true,
+    "preferences_used": false,
+    "benchmarks_or_judges": [
+      "Annotators",
+      "Expert review",
+      "Judge models when used"
+    ],
+    "human_signal_can_verify": "Humans can label task instances and assess construct relevance.",
+    "human_signal_cannot_verify": "Humans may not verify broad generalization, contamination, or deployment consequences unaided.",
+    "role_in_decision": "Human signals define and label benchmark tasks but do not establish claims outside scope."
+  },
+  "verifier_stack": {
+    "hard_verifiers": [
+      "Hidden tests",
+      "Contamination checks",
+      "Robustness checks"
+    ],
+    "soft_verifiers": [
+      "Expert construct review"
+    ],
+    "human_review_channels": [
+      "Benchmark maintainer review"
+    ],
+    "external_tools_or_simulators": [
+      "Evaluation harness"
+    ],
+    "independence_rationale": "Separates task labels, hidden tests, external validation, and robustness checks.",
+    "verifier_gaming_tests": [
+      "Adversarial submissions"
+    ],
+    "correlated_failure_risks": [
+      "Shared dataset artifacts"
+    ]
+  },
+  "hard_constraints": {
+    "non_negotiable_constraints": [
+      "No unsupported leaderboard claim"
+    ],
+    "enforcement_mechanism": "Document supported and unsupported claims with every benchmark use.",
+    "override_policy": "No override for unsupported claims."
+  },
+  "evaluator_frontier": {
+    "where_humans_become_weak_supervisors": "When benchmark scores are extrapolated beyond task distribution.",
+    "required_tooling_for_human_review": "Dataset documentation, scorer reports, contamination checks, and error analysis.",
+    "abstention_or_escalation_conditions": [
+      "Leaderboard saturation",
+      "Known contamination"
+    ]
+  },
+  "uncertainty": {
+    "known_unknowns": [
+      "Generalization outside task distribution"
+    ],
+    "distribution_shift_conditions": [
+      "New model families or task styles"
+    ],
+    "abstention_policy": "Avoid broad claims when uncertainty is high."
+  },
+  "absent_stakeholders": {
+    "affected_non_users": [
+      "Users affected by systems selected through the benchmark"
+    ],
+    "future_or_downstream_stakeholders": [
+      "Researchers relying on leaderboard claims"
+    ],
+    "representation_mechanism": "Benchmark documentation, issue reporting, and periodic audits."
+  },
+  "monitoring_and_rollback": {
+    "deployment_signals_to_monitor": [
+      "Leaderboard saturation",
+      "Contamination reports",
+      "External validity failures"
+    ],
+    "rollback_triggers": [
+      "Construct validity failure",
+      "Confirmed contamination"
+    ],
+    "revision_authority": "Benchmark maintainers.",
+    "review_frequency": "At each benchmark release or major leaderboard shift.",
+    "incident_response_path": "Flag result, revise benchmark documentation, and update evaluation protocol."
+  },
+  "evidence_bundle": {
+    "artifacts": [
+      "Benchmark documentation"
+    ],
+    "datasets": [
+      "Benchmark dataset"
+    ],
+    "eval_harnesses": [
+      "Benchmark harness"
+    ],
+    "logs_or_reports": [
+      "Evaluation report"
+    ],
+    "reproducibility_notes": "Record dataset version, scorer version, and evaluation settings."
+  }
+}

@@ -8,6 +8,22 @@
     "claim_scope": "Specified scientific domain, data regime, validation protocol, and experimental or simulation setting.",
     "supervision_boundary": "Unaided supervision becomes weak when claims require expensive experiments, specialized instrumentation, physical validation, or long-horizon replication."
   },
+  "claim_boundaries": {
+    "supported_claims": [
+      "The system can propose candidates that merit validation under the stated scientific protocol."
+    ],
+    "unsupported_claims": [
+      "The system establishes causal truth without validation.",
+      "The system replaces domain expert review.",
+      "A simulation result alone establishes real-world validity."
+    ],
+    "known_failure_modes": [
+      "Data leakage",
+      "Non-replicable finding",
+      "Unsupported causal mechanism",
+      "Unsafe experimental recommendation"
+    ]
+  },
   "target_world_state": {
     "intended_real_world_outcome": "The system should improve scientific discovery by proposing candidates that survive domain-appropriate validation and reduce wasted experimental effort.",
     "evidence_required": "Experimental validation, replication, simulation fidelity, physical-law checks, held-out prediction performance, uncertainty calibration, and expert interpretation.",
@@ -54,7 +70,16 @@
       "Uncertainty calibration tool",
       "Literature search and prior-art check"
     ],
-    "independence_rationale": "The stack separates expert plausibility from empirical validation, simulation from experiment, benchmark performance from replication, and novelty assessment from safety gates."
+    "independence_rationale": "The stack separates expert plausibility from empirical validation, simulation from experiment, benchmark performance from replication, and novelty assessment from safety gates.",
+    "verifier_gaming_tests": [
+      "Data leakage audits",
+      "Held-out validation",
+      "Independent replication attempts"
+    ],
+    "correlated_failure_risks": [
+      "Simulation assumptions shared across validators",
+      "Benchmark artifacts inherited from historical datasets"
+    ]
   },
   "hard_constraints": {
     "non_negotiable_constraints": [
@@ -78,6 +103,17 @@
       "Simulation assumptions are violated",
       "Replication fails or is unavailable"
     ]
+  },
+  "uncertainty": {
+    "known_unknowns": [
+      "Experimental replication outcome",
+      "Unobserved confounders"
+    ],
+    "distribution_shift_conditions": [
+      "New lab conditions",
+      "New scientific domain"
+    ],
+    "abstention_policy": "Report uncertainty and withhold strong claims when validation or replication is unavailable."
   },
   "absent_stakeholders": {
     "affected_non_users": [
@@ -112,5 +148,22 @@
       "Material uncertainty omitted from reported claim"
     ],
     "revision_authority": "Project leads, safety reviewers, ethics boards, or publication owners can revise, suspend, retract, or withdraw the claim."
+  },
+  "evidence_bundle": {
+    "artifacts": [
+      "Validation protocol",
+      "Experiment plan"
+    ],
+    "datasets": [
+      "Training and held-out datasets"
+    ],
+    "eval_harnesses": [
+      "Simulation and statistical validation pipeline"
+    ],
+    "logs_or_reports": [
+      "Replication report",
+      "Safety review"
+    ],
+    "reproducibility_notes": "Record data provenance, model version, validation settings, and experimental protocol."
   }
 }

@@ -1,0 +1,164 @@
+{
+  "schema_version": "0.2",
+  "card_id": "owa-example-autonomous-research-agent",
+  "card_status": "draft",
+  "system_name": "Autonomous research agent",
+  "system_version": "example",
+  "system_description": "A system that plans literature search, hypothesis generation, experiment design, and analysis workflows.",
+  "authors": [
+    "Open-World Alignment Toolkit"
+  ],
+  "reviewers": [
+    "Research governance reviewer"
+  ],
+  "date_created": "2026-06-02",
+  "date_updated": "2026-06-02",
+  "risk_tier": "frontier",
+  "deployment_stage": "pilot",
+  "intended_use": "Evaluate autonomous research workflows under bounded tool access.",
+  "out_of_scope_uses": [
+    "Unsupervised execution of high-risk experiments"
+  ],
+  "claim_type": {
+    "description": "The system is claimed to propose and coordinate bounded research workflows that remain answerable to expert review and external validation.",
+    "beyond_human_claim": true,
+    "claim_scope": "Specified research domain, tools, data sources, and review gates.",
+    "supervision_boundary": "Humans become weak supervisors when plans span many steps, sources, experiments, and downstream consequences."
+  },
+  "claim_boundaries": {
+    "supported_claims": [
+      "Agent can draft bounded research plans and candidate hypotheses under review."
+    ],
+    "unsupported_claims": [
+      "Agent can autonomously conduct unrestricted research.",
+      "Agent-generated hypotheses are true without validation."
+    ],
+    "known_failure_modes": [
+      "Literature hallucination",
+      "Unsafe experiment proposal",
+      "Hidden tool side effect",
+      "Overclaiming preliminary results"
+    ]
+  },
+  "target_world_state": {
+    "intended_real_world_outcome": "Research workflows should become more efficient without sacrificing evidence quality, safety review, or claim boundaries.",
+    "evidence_required": "Source verification, protocol review, experiment validation, tool logs, expert review, and replication evidence.",
+    "failure_definition": "Unsupported claim, unsafe protocol, fabricated source, invalid analysis, or unapproved tool action."
+  },
+  "human_signal_role": {
+    "labels_used": true,
+    "preferences_used": true,
+    "benchmarks_or_judges": [
+      "Expert review",
+      "Protocol review",
+      "Research-task benchmarks"
+    ],
+    "human_signal_can_verify": "Humans can assess research relevance, feasibility, and interpretive quality.",
+    "human_signal_cannot_verify": "Unaided humans may not verify every source, tool side effect, statistical assumption, or delayed impact.",
+    "role_in_decision": "Human signals authorize mandates and interpret evidence, while external verifiers constrain claims and actions."
+  },
+  "verifier_stack": {
+    "hard_verifiers": [
+      "Source existence checks",
+      "Protocol safety review",
+      "Statistical validation",
+      "Tool permission checks"
+    ],
+    "soft_verifiers": [
+      "Expert plausibility review",
+      "Research novelty review"
+    ],
+    "human_review_channels": [
+      "Principal investigator review",
+      "Safety or ethics review"
+    ],
+    "external_tools_or_simulators": [
+      "Literature database",
+      "Analysis pipeline",
+      "Experiment simulator"
+    ],
+    "independence_rationale": "Separates source verification, tool logs, expert review, and empirical validation.",
+    "verifier_gaming_tests": [
+      "Citation audit",
+      "Protocol adversarial review"
+    ],
+    "correlated_failure_risks": [
+      "Shared literature database gaps",
+      "Model-generated review blind spots"
+    ]
+  },
+  "hard_constraints": {
+    "non_negotiable_constraints": [
+      "No fabricated sources",
+      "No high-risk experiment without approval",
+      "No claim of discovery without validation"
+    ],
+    "enforcement_mechanism": "Tool gates, citation checks, and protocol review.",
+    "override_policy": "No automated override for safety or evidence gates."
+  },
+  "evaluator_frontier": {
+    "where_humans_become_weak_supervisors": "Long research plans, multi-source synthesis, statistical analysis, and tool side effects.",
+    "required_tooling_for_human_review": "Source traces, protocol diffs, analysis notebooks, tool logs, and validation reports.",
+    "abstention_or_escalation_conditions": [
+      "Source cannot be verified",
+      "Protocol has safety implications",
+      "Statistical assumptions fail"
+    ]
+  },
+  "uncertainty": {
+    "known_unknowns": [
+      "Replicability",
+      "External validity"
+    ],
+    "distribution_shift_conditions": [
+      "New domain",
+      "New experimental protocol"
+    ],
+    "abstention_policy": "Escalate high-risk or unvalidated research steps."
+  },
+  "absent_stakeholders": {
+    "affected_non_users": [
+      "Research participants",
+      "Affected communities",
+      "Lab staff"
+    ],
+    "future_or_downstream_stakeholders": [
+      "Researchers building on outputs",
+      "Institutions allocating resources"
+    ],
+    "representation_mechanism": "Ethics review, protocol approval, uncertainty reporting, and replication records."
+  },
+  "monitoring_and_rollback": {
+    "deployment_signals_to_monitor": [
+      "Invalid citations",
+      "Protocol violations",
+      "Failed replications",
+      "Tool incidents"
+    ],
+    "rollback_triggers": [
+      "Fabricated source",
+      "Unsafe protocol",
+      "Invalid analysis"
+    ],
+    "revision_authority": "Research lead, safety reviewer, or ethics board.",
+    "review_frequency": "At each research stage gate.",
+    "incident_response_path": "Pause workflow, preserve logs, notify reviewer, and revise or withdraw claim."
+  },
+  "evidence_bundle": {
+    "artifacts": [
+      "Research plan",
+      "Protocol"
+    ],
+    "datasets": [
+      "Source corpus"
+    ],
+    "eval_harnesses": [
+      "Citation and analysis checks"
+    ],
+    "logs_or_reports": [
+      "Tool logs",
+      "Review report"
+    ],
+    "reproducibility_notes": "Record sources, tool versions, analysis code, and protocol revisions."
+  }
+}

@@ -1,0 +1,160 @@
+{
+  "schema_version": "0.2",
+  "card_id": "owa-example-medical-triage",
+  "card_status": "draft",
+  "system_name": "Medical triage decision-support system",
+  "system_version": "example",
+  "system_description": "A decision-support system that helps prioritize triage under clinician oversight.",
+  "authors": [
+    "Open-World Alignment Toolkit"
+  ],
+  "reviewers": [
+    "Clinical safety reviewer"
+  ],
+  "date_created": "2026-06-02",
+  "date_updated": "2026-06-02",
+  "risk_tier": "high",
+  "deployment_stage": "pilot",
+  "intended_use": "Support triage review under clinical governance.",
+  "out_of_scope_uses": [
+    "Autonomous diagnosis",
+    "Treatment decisions without clinician review"
+  ],
+  "claim_type": {
+    "description": "The system is claimed to support triage prioritization in a specified clinical context under clinician review.",
+    "beyond_human_claim": false,
+    "claim_scope": "Specified patient population, care setting, data inputs, and triage protocol.",
+    "supervision_boundary": "Humans become weak supervisors when risk depends on hidden data quality, rare conditions, or delayed patient outcomes."
+  },
+  "claim_boundaries": {
+    "supported_claims": [
+      "System can assist prioritization under stated protocol and oversight."
+    ],
+    "unsupported_claims": [
+      "System can diagnose autonomously.",
+      "System is safe outside the validated population."
+    ],
+    "known_failure_modes": [
+      "Dataset shift",
+      "Under-triage of rare conditions",
+      "Unequal performance across groups"
+    ]
+  },
+  "target_world_state": {
+    "intended_real_world_outcome": "Triage support should improve timely care without increasing harmful under-triage, inequity, or clinician burden.",
+    "evidence_required": "Clinical validation, subgroup analysis, calibration, clinician review, safety monitoring, and appeals.",
+    "failure_definition": "Harmful triage delay, subgroup performance failure, unsafe recommendation, or protocol violation."
+  },
+  "human_signal_role": {
+    "labels_used": true,
+    "preferences_used": false,
+    "benchmarks_or_judges": [
+      "Clinician labels",
+      "Clinical outcome review",
+      "Protocol audit"
+    ],
+    "human_signal_can_verify": "Clinicians can assess plausibility, context, and care protocol fit.",
+    "human_signal_cannot_verify": "Unaided clinicians may not detect calibration drift, subgroup harm, or delayed outcome patterns.",
+    "role_in_decision": "Clinicians retain decision authority; model output is evidence for review, not autonomous action."
+  },
+  "verifier_stack": {
+    "hard_verifiers": [
+      "Clinical validation",
+      "Calibration checks",
+      "Subgroup performance checks",
+      "Protocol compliance audit"
+    ],
+    "soft_verifiers": [
+      "Clinician usability review",
+      "Patient safety review"
+    ],
+    "human_review_channels": [
+      "Clinician review",
+      "Clinical safety board"
+    ],
+    "external_tools_or_simulators": [
+      "Clinical audit dashboard",
+      "Outcome monitoring"
+    ],
+    "independence_rationale": "Separates clinician judgment, outcome data, subgroup checks, and protocol audits.",
+    "verifier_gaming_tests": [
+      "Subgroup stress tests",
+      "Data quality audits"
+    ],
+    "correlated_failure_risks": [
+      "Historical label bias",
+      "Missing data patterns"
+    ]
+  },
+  "hard_constraints": {
+    "non_negotiable_constraints": [
+      "No autonomous diagnosis",
+      "No deployment outside validated setting",
+      "No suppressed uncertainty"
+    ],
+    "enforcement_mechanism": "Clinical workflow gates and audit review.",
+    "override_policy": "Clinician override is allowed with documentation; model cannot override clinician judgment."
+  },
+  "evaluator_frontier": {
+    "where_humans_become_weak_supervisors": "Population-level calibration, rare conditions, data drift, and delayed outcomes.",
+    "required_tooling_for_human_review": "Calibration dashboard, subgroup reports, patient outcome audits, and appeal records.",
+    "abstention_or_escalation_conditions": [
+      "Low confidence",
+      "Out-of-distribution patient",
+      "Missing critical data",
+      "High-risk case"
+    ]
+  },
+  "uncertainty": {
+    "known_unknowns": [
+      "Delayed outcome effects",
+      "Unmeasured subgroup risks"
+    ],
+    "distribution_shift_conditions": [
+      "New hospital setting",
+      "Changed patient population"
+    ],
+    "abstention_policy": "Escalate to clinician review when uncertainty or risk is high."
+  },
+  "absent_stakeholders": {
+    "affected_non_users": [
+      "Patients and families"
+    ],
+    "future_or_downstream_stakeholders": [
+      "Clinicians handling downstream care",
+      "Hospital safety teams"
+    ],
+    "representation_mechanism": "Clinical governance, appeals, patient safety review, and subgroup audits."
+  },
+  "monitoring_and_rollback": {
+    "deployment_signals_to_monitor": [
+      "Under-triage incidents",
+      "Calibration drift",
+      "Subgroup disparities",
+      "Clinician overrides"
+    ],
+    "rollback_triggers": [
+      "Severe patient safety incident",
+      "Subgroup performance threshold violation",
+      "Protocol violation"
+    ],
+    "revision_authority": "Clinical safety board or deployment owner.",
+    "review_frequency": "Continuous monitoring with scheduled clinical safety review.",
+    "incident_response_path": "Pause deployment, review incident, notify clinical governance, and revise or withdraw."
+  },
+  "evidence_bundle": {
+    "artifacts": [
+      "Clinical validation report"
+    ],
+    "datasets": [
+      "Validation cohort"
+    ],
+    "eval_harnesses": [
+      "Calibration and subgroup analysis pipeline"
+    ],
+    "logs_or_reports": [
+      "Safety audit"
+    ],
+    "reproducibility_notes": "Record cohort definition, model version, thresholds, and clinical protocol."
+  }
+}

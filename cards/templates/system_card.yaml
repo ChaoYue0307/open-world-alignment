@@ -1,0 +1,133 @@
+{
+  "schema_version": "0.2",
+  "card_id": "owa-system-card-template",
+  "card_status": "draft",
+  "system_name": "System card template",
+  "system_version": "0.0",
+  "system_description": "Template for an AI system evaluated under open-world alignment.",
+  "authors": [
+    "Card author"
+  ],
+  "reviewers": [
+    "Reviewer role"
+  ],
+  "date_created": "YYYY-MM-DD",
+  "date_updated": "YYYY-MM-DD",
+  "risk_tier": "medium",
+  "deployment_stage": "research",
+  "intended_use": "Document a system claim and its verifier stack.",
+  "out_of_scope_uses": [
+    "Safety certification without domain-specific review"
+  ],
+  "claim_type": {
+    "description": "State the concrete system capability claim.",
+    "beyond_human_claim": false,
+    "claim_scope": "State the task, domain, population, or deployment boundary.",
+    "supervision_boundary": "State where unaided human supervision becomes weak."
+  },
+  "claim_boundaries": {
+    "supported_claims": [
+      "State one supported claim."
+    ],
+    "unsupported_claims": [
+      "State one unsupported claim."
+    ],
+    "known_failure_modes": [
+      "State one known failure mode."
+    ]
+  },
+  "target_world_state": {
+    "intended_real_world_outcome": "State the intended real-world outcome.",
+    "evidence_required": "State the evidence required.",
+    "failure_definition": "State the failure definition."
+  },
+  "human_signal_role": {
+    "labels_used": false,
+    "preferences_used": false,
+    "benchmarks_or_judges": [
+      "Human review"
+    ],
+    "human_signal_can_verify": "State what humans can verify.",
+    "human_signal_cannot_verify": "State what humans cannot verify unaided.",
+    "role_in_decision": "State the role of human signals."
+  },
+  "verifier_stack": {
+    "hard_verifiers": [
+      "Hard verifier"
+    ],
+    "soft_verifiers": [
+      "Soft verifier"
+    ],
+    "human_review_channels": [
+      "Human review channel"
+    ],
+    "external_tools_or_simulators": [
+      "External tool"
+    ],
+    "independence_rationale": "Explain verifier independence.",
+    "verifier_gaming_tests": [
+      "Verifier gaming test"
+    ],
+    "correlated_failure_risks": [
+      "Correlated failure risk"
+    ]
+  },
+  "hard_constraints": {
+    "non_negotiable_constraints": [
+      "Hard constraint"
+    ],
+    "enforcement_mechanism": "State enforcement mechanism.",
+    "override_policy": "State override policy."
+  },
+  "evaluator_frontier": {
+    "where_humans_become_weak_supervisors": "State evaluator frontier.",
+    "required_tooling_for_human_review": "State required tooling.",
+    "abstention_or_escalation_conditions": [
+      "Escalation condition"
+    ]
+  },
+  "uncertainty": {
+    "known_unknowns": [
+      "Known unknown"
+    ],
+    "distribution_shift_conditions": [
+      "Distribution shift condition"
+    ],
+    "abstention_policy": "State abstention policy."
+  },
+  "absent_stakeholders": {
+    "affected_non_users": [
+      "Affected non-user"
+    ],
+    "future_or_downstream_stakeholders": [
+      "Downstream stakeholder"
+    ],
+    "representation_mechanism": "State representation mechanism."
+  },
+  "monitoring_and_rollback": {
+    "deployment_signals_to_monitor": [
+      "Monitoring signal"
+    ],
+    "rollback_triggers": [
+      "Rollback trigger"
+    ],
+    "revision_authority": "State revision authority.",
+    "review_frequency": "State review frequency.",
+    "incident_response_path": "State incident response path."
+  },
+  "evidence_bundle": {
+    "artifacts": [
+      "Artifact"
+    ],
+    "datasets": [
+      "Dataset"
+    ],
+    "eval_harnesses": [
+      "Evaluation harness"
+    ],
+    "logs_or_reports": [
+      "Report"
+    ],
+    "reproducibility_notes": "State reproducibility notes."
+  }
+}

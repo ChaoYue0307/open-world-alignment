@@ -1,8 +1,10 @@
 # Foundation Model Verifier Stack
 
-Use this stack when evaluating general-purpose models that affect information seeking, education, programming workflows, labor, misuse risk, privacy, or compute demand.
+## Domain Claim
 
-## Human Signal
+The system provides general-purpose language, multimodal, or tool-use capabilities across many user contexts.
+
+## Human Signals
 
 - Helpfulness preferences
 - Instruction-following judgments
@@ -10,34 +12,63 @@ Use this stack when evaluating general-purpose models that affect information se
 - User feedback
 - Policy interpretation
 
-## World-Facing Verifiers
+## Human-Signal Limits
 
-- Factuality and citation fidelity checks
-- Tool-use success rates
-- Retrieval-grounded answer verification
-- Misuse and abuse evaluations
+Humans are weak supervisors for specialized factual claims, long-horizon consequences, hidden tool effects, adversarial misuse analysis, and ecosystem-level impact.
+
+## Hard Verifiers
+
+- Retrieval-grounded factuality checks
+- Citation fidelity checks
+- Tool-use success and side-effect checks
 - Privacy leakage tests
-- Robustness and distribution-shift tests
+- Misuse-risk evaluations
 - Resource and energy accounting
+
+## Soft Verifiers
+
+- Expert review
+- Red-team review
+- User-feedback review
+- Model-generated critique used only as advisory evidence
+
+## Independence Rationale
+
+Preference ratings, factual checks, policy checks, and incident monitoring test different constructs and should be reported separately.
+
+## Verifier-Gaming Risks
+
+- Model optimizes for rated helpfulness while hiding uncertainty.
+- Synthetic judges share model blind spots.
+- Retrieval evidence is cited but not faithfully used.
+- Aggregate score masks severe subgroup or domain failures.
 
 ## Hard Constraints
 
-- No prohibited privacy leakage
-- No severe misuse enablement under defined threat models
-- No undisclosed policy override
-- No unacceptable resource or compute budget violation
-- No deployment without monitoring and incident-response ownership
+- No prohibited privacy leakage.
+- No severe misuse enablement under the stated policy.
+- No undisclosed policy override.
+- No unacceptable resource or compute-budget violation.
 
-## Evaluator Frontier
+## Escalation Conditions
 
-Human raters become weak supervisors when answers require specialized expertise, long-horizon consequences, hidden factual checking, adversarial misuse analysis, or ecosystem-level impact assessment.
+- High-impact domain query
+- Conflicting evidence
+- Missing source trace
+- Policy boundary ambiguity
+- Tool action with irreversible effects
 
-## Monitoring
+## Monitoring Signals
 
 - Abuse reports
 - Factuality incident reports
 - Policy violation rates
 - Privacy incidents
 - Resource consumption
-- Drift in tool-use or retrieval behavior
-- Rollback and model-update records
+
+## Rollback Triggers
+
+- Repeated severe policy failures
+- Confirmed privacy incident
+- Tool side effect outside authorized scope
+- Monitoring owner withdraws support for the release claim
