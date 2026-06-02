@@ -1,20 +1,10 @@
 cff-version: 1.2.0
-message: "If you use this repository, please cite the associated manuscript."
-title: "Beyond Human Measure: Toward Guiding ASI by Open-World Alignment"
-type: article
+message: "If you use this repository, please cite the toolkit."
+title: "Open-World Alignment: Evaluation Infrastructure for AI Systems Beyond Direct Human Supervision"
+type: software
 authors:
   - family-names: He
     given-names: Chaoyue
-  - family-names: Zhou
-    given-names: Xin
-  - family-names: Wang
-    given-names: Di
-  - family-names: Xu
-    given-names: Hong
-  - family-names: Liu
-    given-names: Wei
-  - family-names: Miao
-    given-names: Chunyan
 year: 2026
 repository-code: "https://github.com/ChaoYue0307/open-world-alignment"
 license: MIT

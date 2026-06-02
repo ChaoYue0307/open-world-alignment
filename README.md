@@ -81,12 +81,12 @@ This reading map collects papers and artifacts that fit the open-world alignment
 
 ## Citation
 
-If you use this repository, cite the manuscript:
+If you use this repository, cite the toolkit:
 
 ```bibtex
-@misc{he2026beyondhumanmeasure,
-  title  = {Beyond Human Measure: Toward Guiding ASI by Open-World Alignment},
-  author = {He, Chaoyue and Zhou, Xin and Wang, Di and Xu, Hong and Liu, Wei and Miao, Chunyan},
+@misc{he2026openworldalignment,
+  title  = {Open-World Alignment: Evaluation Infrastructure for AI Systems Beyond Direct Human Supervision},
+  author = {He, Chaoyue},
   year   = {2026}
 }
 ```
